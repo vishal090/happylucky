@@ -1,0 +1,54 @@
+.header {
+}
+
+.title {
+}
+
+.content {
+
+}
+
+.button {
+}
+
+.text {
+}
+
+.checkbox {
+}
+
+.dropdown {
+    background-image: url('images/dropdown.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.radio {
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.legal {
+    text-align: center;
+}
+
+a:link, a:visited {
+	color:#27b;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+a img {
+	border-width:0;
+}
