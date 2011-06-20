@@ -135,3 +135,26 @@ border:0;
 	cursor:pointer;
 }
 
+#logout-topnav {
+	padding:10px 0px 12px;
+	font-size:11px;
+	line-height:23px;
+	text-align:right;
+}
+#logout-topnav a.signout {
+	background:#88bbd4;
+	padding:4px 6px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	*background:transparent url("images/signin-nav-bg-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
+#logout-topnav a.signout:hover {
+	background:#59B;
+	*background:transparent url("images/signin-nav-bg-hover-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}

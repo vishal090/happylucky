@@ -6,43 +6,43 @@ class User extends MY_DataMapper {
 
     $validation = array(
         'username' => array(
-            'label' => 'Username',
+            'label' => lang('user_username'),
             'rules' => array('required')
         ),
         'password' => array(
-            'label' => 'Password',
+            'label' => lang('user_password'),
             'rules' => array('required', 'trim', 'encrypt')
         ),
         'confirm_password' => array(
-            'label' => 'Confirm Password',
+            'label' => lang('user_confirm_password'),
             'rules' => array('required', 'matches' => 'password', 'encrypt')
         ),
         'first_name' => array(
-            'label' => 'First Name',
+            'label' => lang('user_first_name'),
             'rules' => array('required')
         ),
         'last_name' => array(
-            'label' => 'Last Name',
+            'label' => lang('user_last_name'),
             'rules' => array('required')
         ),
         'address' => array(
-            'label' => 'Address',
+            'label' => lang('adreess'),
             'rules' => array('required')
         ),
         'city' => array(
-            'label' => 'City',
+            'label' => lang('city'),
             'rules' => array('required')
         ),
         'state' => array(
-            'label' => 'State',
+            'label' => lang('state'),
             'rules' => array('required')
         ),
         'contact_no' => array(
-            'label' => 'Contact No',
+            'label' => lang('user_contact_no'),
             'rules' => array('required')
         ),
         'email' => array(
-            'label' => 'Email',
+            'label' => lang('email'),
             'rules' => array('required', 'unique' ,'trim')
         ),
     );

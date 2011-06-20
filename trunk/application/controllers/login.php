@@ -15,7 +15,7 @@ class Login extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->lang->load('login');
+        $this->lang->load('user');
     }
 
     /**
@@ -34,6 +34,9 @@ class Login extends MY_Controller {
         }
         redirect('welcome/index');
 	}
+
+    public function logout() {
+    }
 }
 
 /* End of file welcome.php */
