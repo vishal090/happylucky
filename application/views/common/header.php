@@ -45,9 +45,24 @@
             ));
         ?>
     </div>
-    <!-- Login -->
-    <?php $this->load->view('common/login', $login);?>
-    <!-- End Login -->
+    <?php if(!get_session('username')) {
+            // Login
+            $this->load->view('common/login', $login);
+            // End Login
+          }
+          else {
+              // Logout
+   ?>
+        <div id="logout-topnav" class="topnav">
+            <a href="login/logout" class="signout">
+                <span><?php echo lang('user_signout');?></span>
+            </a>
+        </div>
+    <?php
+              // End Logout
+          }
+    ?>
+
     <?php echo clear_div();?>
 
 <!-- Top-menu -->

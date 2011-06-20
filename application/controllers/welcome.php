@@ -16,7 +16,7 @@ class Welcome extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('product');
-        $this->lang->load('login');
+        $this->lang->load('user');
     }
 
     function index() {
