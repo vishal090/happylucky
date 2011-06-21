@@ -74,7 +74,7 @@ $config['url_suffix'] = '.html';
 | than english.
 |
 */
-$lang = isset($_COOKIE['language']) ? $_COOKIE['language'] : 'simplify_chinese';
+$lang = isset($_COOKIE['language']) ? $_COOKIE['language'] : 'english';
 $config['language']	= $lang;
 
 /*

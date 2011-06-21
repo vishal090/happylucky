@@ -14,11 +14,17 @@
         <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
         <label for="remember"><?php echo lang('user_remember_me');?></label>
       </p>
-      <p class="forgot"> <a href="#" id="resend_password_link"><?php echo lang('user_forgot_password');?>?</a> </p>
+      <p class="forgot"><a href="#" id="resend_password_link"><?php echo lang('user_forgot_password');?>?</a> </p>
       <p class="forgot-username">
         <a id="forgot_username_link"
             title="<?php echo lang('user_forgot_username_tooltip');?>" 
             href="#"><?php echo lang('user_forgot_username');?>?
+        </a>
+      </p>
+      <p class="register">
+        <a id="register_link"
+            title="<?php echo lang('user_register_tooltip');?>" 
+            href="register"><?php echo lang('user_register');?>?
         </a>
       </p>
     </form>
