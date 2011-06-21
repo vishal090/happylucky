@@ -107,7 +107,7 @@ a.signin.menu-open span {
 #login-signin_menu p.remember {
 	padding:10px 0;
 }
-#login-signin_menu p.forgot, #login-signin_menu p.complete {
+#login-signin_menu p.forgot, #login-signin_menu p.register, #login-signin_menu p.complete {
 	clear:both;
 	margin:5px 0;
 }

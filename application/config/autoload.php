@@ -106,7 +106,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array('general');
+$autoload['language'] = array('general', 'javascript');
 
 
 /*
