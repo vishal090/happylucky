@@ -1,7 +1,7 @@
 <div class="grid_16" id="menu">
     <ul class="menu">
         <li>
-            <a href="#">
+            <a href="welcome">
                 <span><?php echo lang('home');?></span>
             </a>
         </li>

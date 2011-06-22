@@ -28,6 +28,8 @@ $scripts = array(
     'date.format.js',
     'login/jquery.pop.js',
     'login/jquery.tipsy.js',
+    'login.js',
+    'accordion.js',
     'common.js',
 );
 

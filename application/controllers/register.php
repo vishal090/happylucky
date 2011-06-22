@@ -4,10 +4,12 @@ class Register extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('user');
+        $this->load->model('user_model', 'user');
+        $this->lang->load('user');
     }
 
     public function index() {
-        $this->load_view('user/register/index');
+        $this->var['login']['page'] = "user/login";
+        $this->load_view('user/register/index', $this->var);
     }
 }

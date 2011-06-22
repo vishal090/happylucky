@@ -12,15 +12,20 @@
             <td><input type="text" name="age" id="age" class="positive-integer" /> </td>
             <td class="table-label"><?php echo lang('user_sex');?>: </td>
             <td>
-                <input type="radio" value="<?php echo lang('user_male');?>" name="sex" id="male" />
-                <input type="radio" value="<?php echo lang('user_female');?>" name="sex" id="female" />
+                <input type="radio" value="<?php echo lang('user_male');?>" name="sex" id="male">
+                    <?php echo lang('user_male');?>
+                </input>
+                <input type="radio" value="<?php echo lang('user_female');?>" name="sex" id="female">
+                    <?php echo lang('user_female');?>
+                </input>
+                </input>
             </td>
         </tr>
         <tr>
             <td class="table-label"><?php echo lang('user_password');?>: </td>
-            <td><input type="text" name="password" id="password" /></td>
+            <td><input type="password" name="password" id="password" /></td>
             <td class="table-label"><?php echo lang('user_confirm_password');?>: </td>
-            <td><input type="text" name="confirm_password" id="confirm_password" /> </td>
+            <td><input type="password" name="confirm_password" id="confirm_password" /> </td>
         </tr>
         <tr>
             <td class="table-label"><?php echo lang('user_first_name');?>: </td>
@@ -58,5 +63,9 @@
             <td class="table-label"><?php echo lang('email');?>: </td>
             <td><input title="<?php echo lang('user_email_tooltip');?>" type="text" name="email" id="email" /></td>
         </tr>
-    </table>
+        <tr>
+            <td colspan="2"><input type="submit" value="<?php echo lang('user_register');?>" /></td>
+            <td colspan="2"><input type="reset" value="<?php echo lang('reset');?>" /></td>
+        </tr>
+    </table><input type="button" onclick="redirect('country/search.html?term=my')" value="<?php echo lang('country');?>" />
 </form>

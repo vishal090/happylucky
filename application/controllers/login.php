@@ -15,7 +15,7 @@ class Login extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->lang->load('user');
+        $this->lang->load('user_model', 'user');
     }
 
     /**

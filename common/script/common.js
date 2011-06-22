@@ -38,6 +38,38 @@ $(document).ready(function() {
     }
     ).attr('title', lang_integer_tooltip);
 
-    $('#country').autocomplete({
+    $('input#country').autocomplete({
+        highlight: true,
+        minLength: 1,
+        scroll: true,
+        dataType: 'json',
+        source: base_url + 'country/search',
+        focus: function(event, ui) {
+            formatted = format_country(ui.item);
+            $('#country').val(formatted);
+            return false;
+        },
+        select: function(event, ui) {
+            formatted = format_country(ui.item);
+            $('#country').val(formatted);
+            return false;
+        },
+        open: function() {
+            $(this).removeClass('ui-corner-all').addClass('ui-corner-top');
+        },
+        close: function() {
+            $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
+        }
     });
 });
+
+function format_country(country) {
+    var value = '';
+    if(country.iso_code_3 && country.country_name)
+        value = country.iso_code_3 + ' - ' + country.country_name;
+    else if(country.country_name)
+        value = country.country_name;
+    else if(country.iso_code_3)
+        value = country.iso_code_3;
+    return value;
+}

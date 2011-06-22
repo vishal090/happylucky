@@ -1,51 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once "my_datamapper.php";
 
-class User extends MY_DataMapper {
+class User_Model extends MY_DataMapper {
 
     var $table = "user";
-
-    $validation = array(
-        'username' => array(
-            'label' => lang('user_username'),
-            'rules' => array('required')
-        ),
-        'password' => array(
-            'label' => lang('user_password'),
-            'rules' => array('required', 'trim', 'encrypt')
-        ),
-        'confirm_password' => array(
-            'label' => lang('user_confirm_password'),
-            'rules' => array('required', 'matches' => 'password', 'encrypt')
-        ),
-        'first_name' => array(
-            'label' => lang('user_first_name'),
-            'rules' => array('required')
-        ),
-        'last_name' => array(
-            'label' => lang('user_last_name'),
-            'rules' => array('required')
-        ),
-        'address' => array(
-            'label' => lang('adreess'),
-            'rules' => array('required')
-        ),
-        'city' => array(
-            'label' => lang('city'),
-            'rules' => array('required')
-        ),
-        'state' => array(
-            'label' => lang('state'),
-            'rules' => array('required')
-        ),
-        'contact_no' => array(
-            'label' => lang('user_contact_no'),
-            'rules' => array('required')
-        ),
-        'email' => array(
-            'label' => lang('email'),
-            'rules' => array('required', 'unique' ,'trim')
-        ),
-    );
+    var $validation;
 
     /**
      * __construct 
@@ -54,6 +13,48 @@ class User extends MY_DataMapper {
      * @return void
      */
     public function __construct($id = NULL) {
+        $this->validation = array(
+            'username' => array(
+                'label' => lang('user_username'),
+                'rules' => array('required')
+            ),
+            'password' => array(
+                'label' => lang('user_password'),
+                'rules' => array('required', 'trim', 'encrypt')
+            ),
+            'confirm_password' => array(
+                'label' => lang('user_confirm_password'),
+                'rules' => array('required', 'matches' => 'password', 'encrypt')
+            ),
+            'first_name' => array(
+                'label' => lang('user_first_name'),
+                'rules' => array('required')
+            ),
+            'last_name' => array(
+                'label' => lang('user_last_name'),
+                'rules' => array('required')
+            ),
+            'address' => array(
+                'label' => lang('adreess'),
+                'rules' => array('required')
+            ),
+            'city' => array(
+                'label' => lang('city'),
+                'rules' => array('required')
+            ),
+            'state' => array(
+                'label' => lang('state'),
+                'rules' => array('required')
+            ),
+            'contact_no' => array(
+                'label' => lang('user_contact_no'),
+                'rules' => array('required')
+            ),
+            'email' => array(
+                'label' => lang('email'),
+                'rules' => array('required', 'unique' ,'trim')
+            ),
+        );
         parent::__construct($id);
     }
 

@@ -1,13 +1,13 @@
 <div class="grid_6" id="login-container">
-  <div id="login-topnav" class="topnav"><a href="login" class="signin"><span><?php echo lang('user_signin');?></span></a> </div>
+  <div id="login-topnav" class="topnav"><a href="" class="signin"><span><?php echo lang('user_signin');?></span></a> </div>
   <fieldset id="login-signin_menu">
       <form method="post" id="login-signin" action="<?php echo site_url($page);?>">
       <label for="username"><?php echo lang('user_username_or_email');?></label>
-      <input id="username" name="username" value="" title="<?php echo lang('user_username_or_email');?>" tabindex="4" type="text">
+      <input id="login_username" name="username" value="" title="<?php echo lang('user_username_or_email');?>" tabindex="4" type="text">
       </p>
       <p>
         <label for="password"><?php echo lang('user_password');?></label>
-        <input id="password" name="password" value="" title="<?php echo lang('user_password');?>" tabindex="5" type="password">
+        <input id="login_password" name="password" value="" title="<?php echo lang('user_password');?>" tabindex="5" type="password">
       </p>
       <p class="remember">
         <input id="login-signin_submit" value="<?php echo lang('user_signin');?>" tabindex="6" type="submit">
