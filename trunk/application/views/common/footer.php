@@ -1,7 +1,9 @@
 
     </div>
-    <!-- End Page Content -->
-    <?php echo clear_div();?>
+    <!-- End Content -->
+</div>
+<!-- End Content DIV -->
+<?php echo clear_div();?>
 
 <!-- Footer -->
 

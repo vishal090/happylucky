@@ -82,5 +82,13 @@
 <!-- A container to keep the jQuery confirm dialog -->
 <div id="confirm-dialog"></div>
 
+<!-- Accordion -->
+    <div class="grid_4">
+        <?php $this->load->view('common/accordion');?>
+    </div>
+<!-- End Accordion -->
+
+<!-- Content DIV -->
+<div class="grid_12">
     <!-- Content -->
     <div class="content">
