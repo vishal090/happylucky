@@ -14,6 +14,7 @@ lang_integer_tooltip                  = '<?php echo lang('integer_tooltip');?>';
 
 </script>
 <?php 
+// $files = glob('common/script/*.js');
 
 // include file
 $scripts = array(
@@ -25,6 +26,7 @@ $scripts = array(
     'jquery.contextMenu.js',
     'jquery.numeric.js',
     'jquery.lightbox-0.5.js',
+    'jquery.validate.js',
     'date.format.js',
     'login/jquery.pop.js',
     'login/jquery.tipsy.js',
