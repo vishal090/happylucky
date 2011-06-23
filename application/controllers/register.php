@@ -10,6 +10,7 @@ class Register extends MY_Controller {
 
     public function index() {
         $this->var['login']['page'] = "user/login";
+        $this->var['extra_js'] = array('user/register.js');
         $this->load_view('user/register/index', $this->var);
     }
 }
