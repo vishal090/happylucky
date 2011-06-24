@@ -64,7 +64,7 @@ class User_Model extends MY_DataMapper {
      * @param mixed $field 
      * @return void
      */
-    private function _encrypt($field) {
+    protected function _encrypt($field) {
         // Don't encrypt an empty string
         if (!empty($this->{$field})) {
             // Generate a random salt if empty
@@ -76,7 +76,7 @@ class User_Model extends MY_DataMapper {
         }
     }
 
-    private function _is_password_valid($field) {
+    protected function _is_password_valid($field) {
         if (strlen($field) < 6)
             return false;
     }
@@ -121,5 +121,31 @@ class User_Model extends MY_DataMapper {
             return true;
         }
     }
-}
 
+    public function to_array($users) {
+        $array = array();
+        foreach($users as $u) {
+            $temp = array();
+            $temp['user_id']           = $u->user_id;
+            $temp['username']          = $u->username;
+            $temp['first_name']        = $u->first_name;
+            $temp['last_name']         = $u->last_name;
+            $temp['address']           = $u->address;
+            $temp['town']              = $u->town;
+            $temp['postcode']          = $u->postcode;
+            $temp['city']              = $u->city;
+            $temp['state']             = $u->state;
+            $temp['country_id']        = $u->country_id;
+            $temp['contact_no']        = $u->contact_no;
+            $temp['email']             = $u->email;
+            $temp['password']          = $u->password;
+            $temp['registration_date'] = $u->registration_date;
+            $temp['display_picture']   = $u->display_picture;
+            $temp['age']               = $u->age;
+            $temp['sex']               = $u->sex;
+            $temp['user_type']         = $u->user_type;
+            $array[] = $temp;
+        }
+        return $array;
+    }
+}

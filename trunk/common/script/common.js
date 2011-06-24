@@ -38,7 +38,7 @@ $(document).ready(function() {
     }
     ).attr('title', lang_integer_tooltip);
 
-    $('input#country').autocomplete({
+    $('#country').autocomplete({
         highlight: true,
         minLength: 1,
         scroll: true,
@@ -60,7 +60,13 @@ $(document).ready(function() {
         close: function() {
             $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
         }
-    });
+    })
+/*    .data('autocomplete')._renderitem = function(ul, item){
+        return $('<li></li>')
+                .data('item.autocomplete', item)
+                .append('<a>' + format_country(item) + '</a>')
+                .appendto(ul);
+    }*/;
 });
 
 function format_country(country) {
