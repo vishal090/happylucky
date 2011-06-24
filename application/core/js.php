@@ -25,6 +25,7 @@ $scripts = array(
     'jquery-ui-timepicker-addon.js',
     'jquery.contextMenu.js',
     'jquery.numeric.js',
+    'jquery.alphanumeric.js',
     'jquery.lightbox-0.5.js',
     'jquery.validate.js',
     'date.format.js',

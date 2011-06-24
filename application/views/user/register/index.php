@@ -1,4 +1,4 @@
-<form id="register_form" action="" method="POST" name="form">
+<form id="register_form" action="register/save" method="POST" name="form">
     <table>
         <tr>
             <td class="table-header" colspan="4"><?php echo lang('personal_information');?></td>

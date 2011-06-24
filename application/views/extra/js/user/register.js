@@ -91,4 +91,8 @@ $(document).ready(function() {
                  },
          }
     });
+
+    $('#username').alphanumeric({allow: '_.'});
+    $('#first_name').alpha();
+    $('#last_name').alpha();
 });

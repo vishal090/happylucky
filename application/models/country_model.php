@@ -9,17 +9,33 @@ class Country_Model extends MY_DataMapper {
     }
 
     public function search($q) {
-        $country = new Country_Model();
+        $this->ilike('country_name', $q);
+        $this->or_ilike('iso_code_3', $q)->get();
 
-        $criteria = array(
-            'country_name' => $q,
-            'iso_code_3' => $q,
-        );
-        $country->like($criteria);
+        $country_array = $this->to_array($this);
 
-        return $country;
+        $filtered_country = array();
+        $i = 0;
+        foreach ($country_array as $c) {
+            $filtered_country[$i]['country_id'] = $c['country_id'];
+            $filtered_country[$i]['country_name'] = $c['country_name'];
+            $i++;
+        }
+
+        return $filtered_country;
+    }
+
+    public function to_array($country) {
+        $array = array();
+        foreach ( $country as $c ) {
+            $temp = array();
+            $temp['country_id']        = $c->country_id;
+            $temp['country_name']      = $c->country_name;
+            $temp['iso_code_2']        = $c->iso_code_2;
+            $temp['iso_code_3']        = $c->iso_code_3;
+            $temp['postcode_required'] = $c->postcode_required;
+            $array[] = $temp;
+        }
+        return $array;
     }
 }
-
-
-
