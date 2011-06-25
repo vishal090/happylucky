@@ -1,3 +1,10 @@
+body, label, input, button, a, table, p, link, h1, h2, h3
+, h4, h5, h6, ol, ul, address, menu, blockquote, center, del
+, div, span, noscript, pre, abbr, em, strong, b, i, big, small
+, tt, fieldset, param {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
 .header {
 }
 
@@ -9,9 +16,30 @@
 }
 
 .button {
+    background: url('images/button.png') no-repeat;
+    height: 55px;
+    width: 150px;
+    border: 0;
 }
 
 .text {
+    background: url('images/textbox.png') no-repeat top left;
+    height: 22px;
+    width: 156px;
+    border: 0;
+    margin-top: 3px;
+    margin-left: 5px;
+    padding-left: 6px;
+}
+
+.search-box {
+    background: url('images/input_search.png') no-repeat -19px -54px;
+    height: 22px;
+    width: 156px;
+    border: 0;
+    margin-top: 3px;
+    margin-left: 5px;
+    padding-left: 25px;
 }
 
 .checkbox {
@@ -24,6 +52,7 @@
 }
 
 .radio {
+    background-image: url('images/radio.png');
 }
 
 .center {
@@ -40,6 +69,10 @@
 
 .legal {
     text-align: center;
+}
+
+table {
+    width: 100%;
 }
 
 .table-header {
