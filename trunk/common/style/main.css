@@ -15,6 +15,13 @@ body, label, input, button, a, table, p, link, h1, h2, h3
 
 }
 
+.button:hover {
+    background: url('images/blue-button.png') no-repeat;
+    height: 55px;
+    width: 150px;
+    border: 0;
+}
+
 .button {
     background: url('images/button.png') no-repeat;
     height: 55px;
