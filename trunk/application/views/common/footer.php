@@ -9,10 +9,9 @@
 
 <div class="legal">
     <div class="copyright">
-        <div class="license"><a rel="license" href="/"><img alt="Creative Commons License" style="border-width:0" src="<?= str_replace('index.php/','',site_url('img/cc.png')) ?>" /></a></div>
         <div class="licenseInfo">
             &copy; <?php echo lang('all_right_reserved');?>
-            <a href=#>Js Lim</a>
+            <a href=#><?php echo lang('happy_lucky');?></a>
             <br />
             Revision: 
             <?php

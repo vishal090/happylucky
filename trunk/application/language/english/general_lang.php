@@ -1,4 +1,6 @@
 <?php
+$lang['happy_lucky'] = 'Happy Lucky';
+
 // Top menu variable
 $lang['home']               = 'Home';
 $lang['product']            = 'Product';
