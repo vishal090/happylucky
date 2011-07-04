@@ -7,7 +7,8 @@ $(document).ready(function() {
                  },
                password: {
                      required: true,
-                     minlength: 5
+                     minlength: 5,
+                     equalTo: '#password',
                  },
                confirm_password: {
                      required: true,
@@ -39,10 +40,6 @@ $(document).ready(function() {
                contact_no: {
                      required: true,
                      minlength: 8
-                 },
-               email: {
-                     required: true,
-                     email: true 
                  },
          },
          message: {
@@ -73,10 +70,6 @@ $(document).ready(function() {
                      required: true,
                      minlength: 3
                  },
-               postcode: {
-                     required: true,
-                     minlength: 3
-                 },
                state: {
                      required: true,
                      minlength: 3
@@ -95,4 +88,5 @@ $(document).ready(function() {
     $('#username').alphanumeric({allow: '_.'});
     $('#first_name').alpha();
     $('#last_name').alpha();
+    $('#contact_no').numeric({allow: '-'});
 });

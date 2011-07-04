@@ -30,8 +30,14 @@
 <!-- container_16 -->
 <div class="container_16">
 
+<!-- A container to keep the jQuery message dialog -->
+<div id="message-dialog"></div>
+<!-- A container to keep the jQuery confirm dialog -->
+<div id="confirm-dialog"></div>
+
 <!-- Header -->
 <div class="header">
+    <!-- Banner -->
     <div class="grid_10">
         <?php
             echo img(array(
@@ -42,53 +48,8 @@
                 'height' => '116px',
                 'title'  => '',
                 'rel'    => '',
+                'border' => '0',
             ));
         ?>
     </div>
-    <?php if(!get_session('username')) {
-            // Login
-            $this->load->view('common/login', $login);
-            // End Login
-          }
-          else {
-              // Logout
-   ?>
-        <div id="logout-topnav" class="topnav">
-            <a href="login/logout" class="signout">
-                <span><?php echo lang('user_signout');?></span>
-            </a>
-        </div>
-    <?php
-              // End Logout
-          }
-    ?>
-
-    <?php echo clear_div();?>
-
-<!-- Top-menu -->
-<?php 
-    $this->load->view('common/topmenu');
-    echo clear_div();
-?>
-<!-- End Top-menu -->
-    <h1 title="<?php echo isset($title) ? $title : '';?>" class="title">
-        <?php echo isset($title) ? $title : '';?>
-    </h1>
-</div>
-<!-- End Header -->
-<?php echo clear_div();?>
-<!-- A container to keep the jQuery message dialog -->
-<div id="message-dialog"></div>
-<!-- A container to keep the jQuery confirm dialog -->
-<div id="confirm-dialog"></div>
-
-<!-- Accordion -->
-    <div class="grid_4">
-        <?php $this->load->view('common/accordion');?>
-    </div>
-<!-- End Accordion -->
-
-<!-- Content DIV -->
-<div class="grid_12">
-    <!-- Content -->
-    <div class="content">
+    <!-- End Banner -->

@@ -13,6 +13,12 @@ require_once "my_datamapper.php";
  */
 class Supplier_Model extends MY_DataMapper {
     var $table = "supplier";
+    var $has_one = array(
+        'country'
+    );
+    var $has_many = array(
+        'supplier_order'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

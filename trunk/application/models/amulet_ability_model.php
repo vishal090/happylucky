@@ -13,6 +13,10 @@ require_once "my_datamapper.php";
  */
 class Amulet_Ability_Model extends MY_DataMapper {
     var $table = "amulet_ability";
+    var $has_one = array(
+        'ability',
+        'amulet'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

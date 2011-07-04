@@ -38,5 +38,8 @@ class Register extends MY_Controller {
         if($user->save()) {
             echo "successful";
         }
+        else {
+            echo "failed";
+        }
     }
 }

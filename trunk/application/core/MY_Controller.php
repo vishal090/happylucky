@@ -30,7 +30,15 @@ class MY_Controller extends CI_Controller {
      */
 	function load_view ($view, $vars = array(), $rendered = false) {
 		$this->load->view ('common/header', $vars, $rendered);
+        if(!$this->_is_admin_template($view))
+            $this->load->view('common/user-body', $vars, $rendered);
+        else
+            $this->load->view('common/admin-body', $vars, $rendered);
 		$this->load->view ($view, $vars, $rendered);			
 		$this->load->view ('common/footer', $vars, $rendered);
 	}
+
+    private function _is_admin_template($url) {
+        return strstr($url, 'admin/') != '';
+    }
 }	

@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Welcome 
+ * Dashboard 
  * 
  * @uses MY_Controller
  * @package 
@@ -10,17 +10,20 @@
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class Welcome extends MY_Controller {
+class Dashboard extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('product_model', 'product');
         $this->lang->load('user');
-        $this->lang->load('product');
+        $this->lang->load('dashboard');
+        $this->load->model('dashboard_model', 'dashboard');
     }
 
     function index() {
-        $vars['title'] = lang('home');
-        $this->load_view('user/home', $vars);
+        $vars['title'] = lang('dashboard');
+        $vars['widgets'] = $this->dashboard->get_widgets();
+        $vars['pending_orders'] = array();
+        $vars['stocks'] = array();
+        $this->load_view('admin/dashboard/index', $vars);
     }
 }

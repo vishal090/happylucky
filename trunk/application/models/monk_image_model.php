@@ -13,6 +13,9 @@ require_once "my_datamapper.php";
  */
 class Monk_Image_Model extends MY_DataMapper {
     var $table = "monk_image";
+    var $has_one = array(
+        'monk'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

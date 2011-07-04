@@ -11,8 +11,7 @@ require_once "my_datamapper.php";
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class Cart_Item_Model extends MY_DataMapper {
-    var $table = "cart_item";
+class Cart_Item_Model extends CI_Model {
 
     public function __construct($id = null) {
         parent::__construct($id);

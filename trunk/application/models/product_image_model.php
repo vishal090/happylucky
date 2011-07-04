@@ -13,6 +13,9 @@ require_once "my_datamapper.php";
  */
 class Product_Image_Model extends MY_DataMapper {
     var $table = "product_image";
+    var $has_one = array(
+        'product'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

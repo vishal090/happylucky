@@ -38,6 +38,8 @@ $(document).ready(function() {
     }
     ).attr('title', lang_integer_tooltip);
 
+    $("input.postcode").mask("99999");
+
     $('#country').autocomplete({
         highlight: true,
         minLength: 1,

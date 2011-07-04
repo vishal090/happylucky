@@ -14,6 +14,9 @@ require_once "my_datamapper.php";
 class Ability_Model extends MY_DataMapper {
     var $table = "ability";
     var $validation;
+    var $has_many = array(
+        'amulet_ability'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

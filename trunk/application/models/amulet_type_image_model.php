@@ -13,6 +13,9 @@ require_once "my_datamapper.php";
  */
 class Amulet_Type_Image_Model extends MY_DataMapper {
     var $table = "amulet_type_image";
+    var $has_one = array(
+        'amulet_type'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);
