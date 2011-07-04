@@ -29,11 +29,6 @@
         </li>
         <li>
             <a href="#">
-                <span><?php echo lang('consultant');?></span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
                 <span><?php echo lang('contact_us');?></span>
             </a>
         </li>

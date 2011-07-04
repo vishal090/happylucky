@@ -14,6 +14,13 @@ require_once "my_datamapper.php";
 class Product_Model extends MY_DataMapper {
 
     var $table = "product";
+    var $has_one = array(
+        'amulet_product'
+    );
+    var $has_many = array(
+        'product_image',
+        'order_detail'
+    );
     var $product_image_url = "images/products/";
 
     /**

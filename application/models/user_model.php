@@ -15,6 +15,12 @@ class User_Model extends MY_DataMapper {
 
     var $table = "user";
     var $validation;
+    var $has_one = array(
+        'country'
+    );
+    var $has_many = array(
+        'customer_order'
+    );
 
     /**
      * __construct 
@@ -93,7 +99,7 @@ class User_Model extends MY_DataMapper {
 
     public function login($user_type = 'MEMBER') {
         // Create a temporary user object
-        $u = new User();
+        $u = new User_Model();
 
         $criteria = array('user_type' => $user_type);
         // Get this users stored record via their username if the username 
@@ -118,10 +124,10 @@ class User_Model extends MY_DataMapper {
         // this user object would be fully populated, complete with their ID.
 
         // If there was no matching record, this user would be completely cleared so their id would be empty.
-        if (empty($this->id))
+        if (empty($this->user_id))
         {
             // Login failed, so set a custom error message
-            $this->error_message('login', 'Username or password invalid');
+            $this->error_message('login', lang('user_invalid_username_or_password'));
 
             return false;
         }

@@ -20,6 +20,8 @@ $lang['user_remember_me']     = "Remember Me";
 $lang['user_forgot_password'] = "Forgot Password";
 $lang['user_forgot_username'] = "Forgot Username";
 
+$lang['user_invalid_username_or_password'] = "Invalid Username or Password";
+
 /* Tooltips */
 $lang['user_forgot_username_tooltip'] = "If you remember your password, try logging in with your email";
 $lang['user_register_tooltip'] = "Not a member? Register now!";

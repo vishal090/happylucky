@@ -5,6 +5,15 @@ body, label, input, button, a, table, p, link, h1, h2, h3
     font-family: Arial, Arial, Helvetica, sans-serif;
 }
 
+:-moz-any-link :focus {
+	outline: none;
+}
+
+:focus {
+	-moz-outline-style: none;
+	outline: none;
+}
+
 .header {
 }
 
@@ -16,16 +25,16 @@ body, label, input, button, a, table, p, link, h1, h2, h3
 }
 
 .button:hover {
-    background: url('images/blue-button.png') no-repeat;
-    height: 55px;
-    width: 150px;
+    background: url('images/blue-button.png') no-repeat 0px 1px;
+    height: 21px;
+    width: 110px;
     border: 0;
 }
 
 .button {
-    background: url('images/button.png') no-repeat;
-    height: 55px;
-    width: 150px;
+    background: url('images/button.png') no-repeat 0px 1px;
+    height: 21px;
+    width: 110px;
     border: 0;
 }
 
@@ -78,14 +87,73 @@ table {
     width: 100%;
 }
 
+table.listing {
+    border: 1px solid #DFEFFC;
+}
+
+table th {
+    text-align: center;
+}
+
+form table td {
+    padding-bottom: 3px;
+}
+
+form table input {
+	width: 100px;
+	padding: 2px;
+	margin: 0px;
+}
+
+td.label {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+}
+
 .table-header {
     text-align: center;
     background-color: #90f3d2;
     font-weight: bold;
+    margin-top: 20px;
 }
 
-.table-label {
-    text-align: right;
+label.error {
+	display: block;
+	color: red;
+	font-style: italic;
+	font-weight: normal;
+    font-size: 0.9em;
+}
+
+input.error {
+	border: 2px solid red;
+}
+
+div.error {
+	color: red;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+div.error a {
+	color: #336699;
+	font-size: 12px;
+	text-decoration: underline
+}
+
+div.nothing-msg {
+    font-style: italic;
+    text-align: center;
+    color: red;
+}
+
+.admin-login-box {
+    border: 1px solid #7F7F7F;
+    margin-top: 100px;
+    padding: 7px;
+    background-color: #FFFFFF;
 }
 
 a:link, a:visited {

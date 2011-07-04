@@ -13,6 +13,11 @@ require_once "my_datamapper.php";
  */
 class Country_Model extends MY_DataMapper {
     var $table = "country";
+    var $has_many = array(
+        'supplier',
+        'user',
+        'customer_order'
+    );
 
     public function __construct($id = null) {
         parent::__construct($id);

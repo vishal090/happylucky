@@ -2,13 +2,24 @@
 $lang['happy_lucky'] = 'Happy Lucky';
 
 // Top menu variable
-$lang['home']               = 'Home';
-$lang['product']            = 'Product';
-$lang['amulet']             = 'Amulet';
-$lang['accessories']        = 'Accessories';
-$lang['monk']               = 'Monk';
-$lang['consultant']         = 'Consultant';
-$lang['contact_us']         = 'Contact Us';
+$lang['home']                  = 'Home';
+$lang['product']               = 'Product';
+$lang['amulet']                = 'Amulet';
+$lang['accessories']           = 'Accessories';
+$lang['monk']                  = 'Monk';
+$lang['consultant']            = 'Consultant';
+$lang['contact_us']            = 'Contact Us';
+$lang['dashboard']             = 'Dashboard';
+$lang['product_management']    = 'Product Management';
+$lang['amulet_management']     = 'Amulet Management';
+$lang['monk_management']       = 'Monk Management';
+$lang['supplier_management']   = 'Supplier Management';
+$lang['membership_management'] = 'Membership Management';
+$lang['user_management']       = 'User Management';
+$lang['order_management']      = 'Order';
+$lang['retail']                = 'Retail';
+$lang['wholesale']             = 'Wholesale';
+$lang['report']                = 'Report';
 
 $lang['search']             = 'Search';
 $lang['save']               = 'Save';

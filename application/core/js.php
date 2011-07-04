@@ -28,6 +28,7 @@ $scripts = array(
     'jquery.alphanumeric.js',
     'jquery.lightbox-0.5.js',
     'jquery.validate.js',
+    'jquery.maskedinput.js',
     'date.format.js',
     'login/jquery.pop.js',
     'login/jquery.tipsy.js',
