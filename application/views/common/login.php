@@ -2,8 +2,8 @@
   <div id="login-topnav" class="topnav"><a href="" class="signin"><span><?php echo lang('user_signin');?></span></a> </div>
   <fieldset id="login-signin_menu">
       <form method="post" id="login-signin" action="<?php echo site_url('welcome/login');?>">
-      <label for="username"><?php echo lang('user_username_or_email');?></label>
-      <input id="login_username" name="username" value="" title="<?php echo lang('user_username_or_email');?>" tabindex="4" type="text">
+      <label for="email"><?php echo lang('email');?></label>
+      <input id="login_email" name="email" value="" title="<?php echo lang('email');?>" tabindex="4" type="text">
       </p>
       <p>
         <label for="password"><?php echo lang('user_password');?></label>
@@ -15,12 +15,14 @@
         <label for="remember"><?php echo lang('user_remember_me');?></label>
       </p>
       <p class="forgot"><a href="<?php echo site_url('welcome/forgot_password');?>" id="resend_password_link"><?php echo lang('user_forgot_password');?>?</a> </p>
+    <!--
       <p class="forgot-username">
         <a id="forgot_username_link"
             title="<?php echo lang('user_forgot_username_tooltip');?>" 
             href="#"><?php echo lang('user_forgot_username');?>?
         </a>
       </p>
+    -->
       <p class="register">
         <a id="register_link"
             title="<?php echo lang('user_register_tooltip');?>" 

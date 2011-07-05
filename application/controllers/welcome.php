@@ -23,4 +23,35 @@ class Welcome extends MY_Controller {
         $vars['title'] = lang('home');
         $this->load_view('user/home', $vars);
     }
+
+    function login() {
+        if(count($_POST)) {
+            $this->load->model('member_model', 'user');
+            $user = new $this->user();
+
+            $user->email    = get_post('email');
+            $user->password = get_post('password');
+
+            $success = $user->login();
+            if($success) {
+                $session = array(
+                    'user_id'   => $user->user_id,
+                    'password'  => $user->password,
+                    'user_type' => 'MEMBER'
+                );
+                $this->session->set_userdata($session);
+                redirect('welcome');
+            }
+            else {
+                $this->session->set_flashdata('login_error', $user->error->login);
+                redirect('welcome');
+            }
+        }
+        redirect('welcome');
+    }
+
+    function logout() {
+        $this->session->sess_destroy();
+        redirect('welcome');
+    }
 }

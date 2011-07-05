@@ -1,6 +1,6 @@
 <!-- Login Bar -->
 <div class="grid_6">
-<?php if(!get_session('username')) {
+<?php if(!get_session('user_id')) {
         // Login
         $this->load->view('common/login');
         // End Login

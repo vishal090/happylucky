@@ -32,7 +32,7 @@ class Country_Model extends MY_DataMapper {
         $filtered_country = array();
         $i = 0;
         foreach ($country_array as $c) {
-            $filtered_country[$i]['country_id'] = $c['country_id'];
+            $filtered_country[$i]['country_id'] = $c['id'];
             $filtered_country[$i]['country_name'] = $c['country_name'];
             $i++;
         }
@@ -44,7 +44,7 @@ class Country_Model extends MY_DataMapper {
         $array = array();
         foreach ( $country as $c ) {
             $temp = array();
-            $temp['country_id']        = $c->country_id;
+            $temp['id']                = $c->id;
             $temp['country_name']      = $c->country_name;
             $temp['iso_code_2']        = $c->iso_code_2;
             $temp['iso_code_3']        = $c->iso_code_3;
