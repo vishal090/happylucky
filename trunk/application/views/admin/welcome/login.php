@@ -38,11 +38,10 @@ $this->lang->load ('general', get_cookie ('language'));
         </div>
         <div id="login_form_block">
             <form id="login_form" name="login_form"  action="<?php echo site_url('admin/welcome/login')?>" method="post">
-<?php echo form_error('username');?>
                 <table>
                     <tr>
-                        <td class="label"><?php echo lang ('user_username');?> :</td>
-                        <td><input type="text" class="text" id="username" name="username" value="" /></td>
+                        <td class="label"><?php echo lang ('email');?> :</td>
+                        <td><input type="text" class="text" id="email" name="email" value="" /></td>
                     </tr>
                     <tr>
                         <td class="label"><?php echo lang ('user_password');?> :</td>

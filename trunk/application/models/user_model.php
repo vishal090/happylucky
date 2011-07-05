@@ -30,10 +30,6 @@ class User_Model extends MY_DataMapper {
      */
     public function __construct($id = NULL) {
         $this->validation = array(
-            'username' => array(
-                'label' => lang('user_username'),
-                'rules' => array('required')
-            ),
             'password' => array(
                 'label' => lang('user_password'),
                 'rules' => array('required', 'trim', 'encrypt')
@@ -102,14 +98,8 @@ class User_Model extends MY_DataMapper {
         $u = new User_Model();
 
         $criteria = array('user_type' => $user_type);
-        // Get this users stored record via their username if the username 
-        // exist
-        if($this->username)
-            $criteria['username'] = $this->username;
-        // Get this users stored record via their email if the username 
-        // doesn't exist
-        else if($this->email)
-            $criteria['email'] = $this->email;
+        // Get this users stored record via their email
+        $criteria['email'] = $this->email;
 
         $u->where($criteria)->get();
 
@@ -120,14 +110,14 @@ class User_Model extends MY_DataMapper {
         // this will see the 'encrypt' validation run, encrypting the password with the salt
         $this->validate()->get();
 
-        // If the username and encrypted password matched a record in the database,
+        // If the email and encrypted password matched a record in the database,
         // this user object would be fully populated, complete with their ID.
 
         // If there was no matching record, this user would be completely cleared so their id would be empty.
-        if (empty($this->user_id))
+        if (empty($this->id))
         {
             // Login failed, so set a custom error message
-            $this->error_message('login', lang('user_invalid_username_or_password'));
+            $this->error_message('login', lang('user_invalid_email_or_password'));
 
             return false;
         }
@@ -142,8 +132,7 @@ class User_Model extends MY_DataMapper {
         $array = array();
         foreach($users as $u) {
             $temp = array();
-            $temp['user_id']           = $u->user_id;
-            $temp['username']          = $u->username;
+            $temp['id']                = $u->id;
             $temp['first_name']        = $u->first_name;
             $temp['last_name']         = $u->last_name;
             $temp['address']           = $u->address;

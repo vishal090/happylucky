@@ -4,8 +4,8 @@
             <td class="table-header" colspan="4"><?php echo lang('personal_information');?></td>
         </tr>
         <tr>
-            <td class="table-label"><?php echo lang('user_username');?>: </td>
-            <td><input class="text required" type="text" name="username" id="username" /><?php echo form_error('username');?> </td>
+            <td class="table-label"><?php echo lang('email');?>: </td>
+            <td><input class="text required" title="<?php echo lang('user_email_tooltip');?>" type="text" name="email" id="email" /></td>
         </tr>
         <tr>
             <td class="table-label"><?php echo lang('user_age');?>: </td>
@@ -71,10 +71,6 @@
         <tr>
             <td class="table-label"><?php echo lang('user_contact_no');?>: </td>
             <td><input class="text required" type="text" name="contact_no" id="contact_no" /> </td>
-        </tr>
-        <tr>
-            <td class="table-label"><?php echo lang('email');?>: </td>
-            <td><input class="text required" title="<?php echo lang('user_email_tooltip');?>" type="text" name="email" id="email" /></td>
         </tr>
         <tr>
             <td class="center">

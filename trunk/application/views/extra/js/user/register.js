@@ -1,10 +1,6 @@
 $(document).ready(function() {
     $('#register_form').validate({
         rules: {
-               username: {
-                     required: true,
-                     minlength: 3
-                 },
                password: {
                      required: true,
                      minlength: 5,
@@ -43,10 +39,6 @@ $(document).ready(function() {
                  },
          },
          message: {
-               username: {
-                     required: true,
-                     minlength: 3
-                 },
                password: {
                      required: true,
                      minlength: 5
@@ -85,7 +77,6 @@ $(document).ready(function() {
          }
     });
 
-    $('#username').alphanumeric({allow: '_.'});
     $('#first_name').alpha();
     $('#last_name').alpha();
     $('#contact_no').numeric({allow: '-'});

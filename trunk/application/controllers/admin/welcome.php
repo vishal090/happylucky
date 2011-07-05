@@ -18,7 +18,7 @@ class Welcome extends MY_Controller {
     }
 
     function index() {
-        if(get_session('username'))
+        if(get_session('user_id'))
             redirect('admin/dashboard');
         else {
             $this->load->view('admin/welcome/login');
@@ -30,7 +30,7 @@ class Welcome extends MY_Controller {
             $this->load->model('admin_model', 'user');
             $user = new $this->user();
 
-            $user->username = get_post('username');
+            $user->email    = get_post('email');
             $user->password = get_post('password');
 
             $success = $user->login();
