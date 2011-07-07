@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Product 
+ * Amulet 
  * 
  * @uses MY_Controller
  * @package 
@@ -10,7 +10,7 @@
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class Product extends MY_Controller {
+class Amulet extends MY_Controller {
 
     /**
      * __construct 
@@ -19,14 +19,14 @@ class Product extends MY_Controller {
      */
     public function __construct() {
         parent::__construct();
-        $this->lang->load('product');
-        $this->load->Model('product_model');
+        $this->lang->load('amulet');
+        $this->load->Model('amulet_model');
     }
 
     public function index() {
-        $products = new Product_Model();
-        $this->vars['title'] = lang('product_management');
-        $this->vars['product'] = $products;
-        $this->load_view('admin/product/list', $this->vars);
+        $amulets = new Amulet_Model();
+        $this->vars['title'] = lang('amulet_management');
+        $this->vars['amulets'] = $amulets;
+        $this->load_view('admin/amulet/list', $this->vars);
     }
 }

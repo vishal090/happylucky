@@ -1,6 +1,16 @@
 <?php
 $lang['happy_lucky'] = 'Happy Lucky';
 
+$lang['add_new']  = 'Add New';
+$lang['delete']   = 'Delete';
+$lang['save']     = 'Save';
+$lang['back']     = 'Back';
+$lang['next']     = 'Next';
+$lang['previous'] = 'Previous';
+$lang['first']    = 'First';
+$lang['last']     = 'Last';
+$lang['more']     = 'More';
+
 // Top menu variable
 $lang['home']                  = 'Home';
 $lang['product']               = 'Product';

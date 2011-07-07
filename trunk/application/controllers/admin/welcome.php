@@ -14,7 +14,6 @@ class Welcome extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->lang->load('user');
     }
 
     function index() {
@@ -28,7 +27,7 @@ class Welcome extends MY_Controller {
     function login() {
         if(count($_POST)) {
             $this->load->model('admin_model', 'user');
-            $user = new $this->user();
+            $user = new Admin_Model();
 
             $user->email    = get_post('email');
             $user->password = get_post('password');

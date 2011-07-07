@@ -15,7 +15,6 @@ class User extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('member_model', 'user');
-        $this->lang->load('user');
     }
 
     public function index() {
