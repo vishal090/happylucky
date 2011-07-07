@@ -41,13 +41,13 @@ class Product_Model extends MY_DataMapper {
      */
     public function get_html_block() {
         $html = "<div class='product-block'>";
-        $html .= "<a href='".$this->_get_url()."'>";
+        $html .= "<a href='".$this->_get_link()."'>";
         $html .= "<img src='' />";
         $html .= "</a>";
         $html .= "<table>";
         $html .= "<tr>";
         $html .= "<td>".lang('product_code')."</td>";
-        $html .= "<td><a href='".$this->_get_url()."'>".$this->product_code."</a></td>";
+        $html .= "<td><a href='".$this->_get_link()."'>".$this->product_code."</a></td>";
         $html .= "</tr>";
         $html .= "<tr>";
         $html .= "<td>".lang('product_name')."</td>";
@@ -67,7 +67,7 @@ class Product_Model extends MY_DataMapper {
         return $html;
     }
 
-    private function _get_url() {
-        return base_url()."product/view/".$this->product-id;
+    private function _get_link() {
+        $this->_get_curr_url() . "/" . $this->id;
     }
 }

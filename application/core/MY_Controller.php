@@ -11,11 +11,14 @@
  * @license 
  */
 class MY_Controller extends CI_Controller {
+
+    var $vars = array();
 	
 	function __construct () {
 		parent::__construct ();
 		
 		$this->lang->load ('general');
+		$this->lang->load ('user');
 	}
 	
     /**
@@ -29,8 +32,9 @@ class MY_Controller extends CI_Controller {
      * @return void
      */
 	function load_view ($view, $vars = array(), $rendered = false) {
+        $this->vars = array_merge($vars, $this->vars);
 		$this->load->view ('common/header', $vars, $rendered);
-        if(!$this->_is_admin_template($view))
+        if(!$this->_is_admin_template())
             $this->load->view('common/user-body', $vars, $rendered);
         else
             $this->load->view('common/admin-body', $vars, $rendered);
@@ -38,7 +42,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->view ('common/footer', $vars, $rendered);
 	}
 
-    private function _is_admin_template($url) {
-        return strstr($url, 'admin/') != '';
+    private function _is_admin_template() {
+        return $this->router->directory == 'admin/';
     }
 }	

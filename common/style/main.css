@@ -83,12 +83,17 @@ body, label, input, button, a, table, p, link, h1, h2, h3
     text-align: left;
 }
 
+.action-button {
+    text-align: right;
+}
+
 table {
     width: 100%;
 }
 
 table.listing {
     border: 1px solid #DFEFFC;
+    margin-top: 5px;
 }
 
 table th {

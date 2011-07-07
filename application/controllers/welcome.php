@@ -15,7 +15,6 @@ class Welcome extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('product_model', 'product');
-        $this->lang->load('user');
         $this->lang->load('product');
     }
 
@@ -27,7 +26,7 @@ class Welcome extends MY_Controller {
     function login() {
         if(count($_POST)) {
             $this->load->model('member_model', 'user');
-            $user = new $this->user();
+            $user = new Member_Model();
 
             $user->email    = get_post('email');
             $user->password = get_post('password');

@@ -14,7 +14,6 @@ class Dashboard extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->lang->load('user');
         $this->lang->load('dashboard');
         $this->load->model('dashboard_model', 'dashboard');
     }

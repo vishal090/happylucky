@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Product 
+ * User 
  * 
  * @uses MY_Controller
  * @package 
@@ -10,7 +10,7 @@
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class Product extends MY_Controller {
+class User extends MY_Controller {
 
     /**
      * __construct 
@@ -19,14 +19,13 @@ class Product extends MY_Controller {
      */
     public function __construct() {
         parent::__construct();
-        $this->lang->load('product');
-        $this->load->Model('product_model');
+        $this->load->Model('user_model');
     }
 
     public function index() {
-        $products = new Product_Model();
-        $this->vars['title'] = lang('product_management');
-        $this->vars['product'] = $products;
-        $this->load_view('admin/product/list', $this->vars);
+        $users = new User_Model();
+        $this->vars['title'] = lang('user_management');
+        $this->vars['users'] = $users;
+        $this->load_view('admin/user/list', $this->vars);
     }
 }
