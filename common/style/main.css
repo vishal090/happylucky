@@ -94,6 +94,7 @@ table {
 table.listing {
     border: 1px solid #DFEFFC;
     margin-top: 5px;
+    text-align: center;
 }
 
 table th {
@@ -113,6 +114,11 @@ form table input {
 td.label {
     font-weight: bold;
     text-align: right;
+    padding-right: 20px;
+}
+
+td.txt-label {
+    font-weight: bold;
     padding-right: 20px;
 }
 

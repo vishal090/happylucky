@@ -46,7 +46,7 @@
 
 	};
 
-	$.fn.numeric = function(p) {
+	$.fn.numeric2 = function(p) {
 	
 		var az = "abcdefghijklmnopqrstuvwxyz";
 		az += az.toUpperCase();

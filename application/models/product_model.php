@@ -13,13 +13,32 @@ require_once "my_datamapper.php";
  */
 class Product_Model extends MY_DataMapper {
 
+    const TYPE_BOTH      = 'BOTH';
+    const TYPE_RETAIL    = 'RETAIL';
+    const TYPE_WHOLESALE = 'WHOLESALE';
+
     var $table = "product";
     var $has_one = array(
-        'amulet_product'
+        'amulet_product' => array(
+            'class'         => 'amulet_product_model',
+            'other_field'   => 'amulet_product',
+            'join_other_as' => 'amulet_product',
+            'join_table'    => 'product',
+        ),
     );
     var $has_many = array(
-        'product_image',
-        'order_detail'
+        'product_image' => array(
+            'class'        => 'product_image_model',
+            'other_field'  => 'product_image',
+            'join_self_as' => 'product',
+            'join_table'   => 'product_image',
+        ),
+        'order_detail' => array(
+            'class'        => 'order_detail_model',
+            'other_field'  => 'order_detail',
+            'join_self_as' => 'product',
+            'join_table'   => 'order_detail',
+        ),
     );
     var $product_image_url = "images/products/";
 
@@ -69,5 +88,9 @@ class Product_Model extends MY_DataMapper {
 
     private function _get_link() {
         $this->_get_curr_url() . "/" . $this->id;
+    }
+
+    public function is_amulet() {
+        return !empty($this->amulet_product_model->id);
     }
 }

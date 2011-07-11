@@ -15,3 +15,7 @@ $styles = array(
 
 foreach ($styles as $css)
     echo link_tag('common/style/' . $css) . "\n";
+
+$ckeditor = glob('application/libraries/ckeditor/*.css');
+foreach ($ckeditor as $ck)
+    echo link_tag($ck);

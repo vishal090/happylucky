@@ -35,7 +35,7 @@ class Welcome extends MY_Controller {
             $success = $user->login();
             if($success) {
                 $session = array(
-                    'user_id'   => $user->user_id,
+                    'user_id'   => $user->id,
                     'password'  => $user->password,
                     'user_type' => 'ADMIN'
                 );

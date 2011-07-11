@@ -12,7 +12,36 @@ function ui_alert(title, message) {
     $('#message-dialog').dialog({
                             resizable: false,
                             height: 140,
-                            modal: true
+                            modal: true,
+                            buttons: {
+                                Ok: function() {
+                                       $(this).dialog('close');
+                                    }
+                            }
+                        });
+}
+
+function ui_editor(id, title) {
+    $('#ckeditor-dialog').attr({title: title});
+    $('#ckeditor-dialog').dialog({
+                            resizable: false,
+                            height: 440,
+                            width: 900,
+                            modal: true,
+                            buttons: {
+                                Done: function() {
+                                               $('#'+id).val(
+                                                   $('#ckeditor-dialog-done').text()
+                                               );
+                                               $(this).dialog('close');
+                                           },
+                                Cancel: function() {
+                                                 $(this).dialog('close');
+                                             }
+                            },
+                            close: function() {
+                                       $('#'+id).focus();
+                                   }
                         });
 }
 
@@ -39,6 +68,15 @@ $(document).ready(function() {
     ).attr('title', lang_integer_tooltip);
 
     $("input.postcode").mask("99999");
+
+    $('#check_all').click(function () {
+        if($(this).is(':checked')) {
+            $('.delete_check').attr('checked', true);
+        }
+        else {
+            $('.delete_check').attr('checked', false);
+        }
+    });
 
     $('#country').autocomplete({
         highlight: true,

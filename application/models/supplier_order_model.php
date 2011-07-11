@@ -14,10 +14,20 @@ require_once "my_datamapper.php";
 class Supplier_Order_Model extends MY_DataMapper {
     var $table = "supplier_order";
     var $has_one = array(
-        'supplier'
+        'supplier' => array(
+            'class'         => 'supplier_model',
+            'other_field'   => 'supplier',
+            'join_other_as' => 'supplier',
+            'join_table'    => 'supplier_order',
+        ),
     );
     var $has_many = array(
-        'supplier_order_detail'
+        'supplier_order_detail' => array(
+            'class'        => 'supplier_order_detail_model',
+            'other_field'  => 'supplier_order_detail',
+            'join_self_as' => 'supplier_order',
+            'join_table'   => 'supplier_order_detail',
+        ),
     );
 
     public function __construct($id = null) {

@@ -79,7 +79,7 @@ if ( ! function_exists('script_tag'))
  * thus this function is help to clear the grid.
  * 
  * @access public
- * @return void
+ * @return string
  */
 if ( ! function_exists('clear_div')) {
     function clear_div() {
@@ -92,10 +92,27 @@ if ( ! function_exists('clear_div')) {
  * 
  * @param mixed $comment 
  * @access public
- * @return void
+ * @return string
  */
 if ( ! function_exists('comment')) {
     function comment($comment) {
         return "<!-- ".$comment." -->";
+    }
+}
+
+/**
+ * icon_delete 
+ * 
+ * @access public
+ * @return string
+ */
+if ( ! function_exists('icon_delete')) {
+    function icon_delete() {
+        $icon = array(
+            'src' => base_url()."images/icons/delete.png",
+            'alt' => lang('delete'),
+            'title' => lang('delete'),
+        );
+        return img($icon);
     }
 }

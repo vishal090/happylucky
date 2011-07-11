@@ -14,9 +14,24 @@ require_once "my_datamapper.php";
 class Country_Model extends MY_DataMapper {
     var $table = "country";
     var $has_many = array(
-        'supplier',
-        'user',
-        'customer_order'
+        'supplier' => array(
+            'class'        => 'supplier_model',
+            'other_field'  => 'supplier',
+            'join_self_as' => 'country',
+            'join_table'   => 'supplier',
+        ),
+        'user' => array(
+            'class'        => 'user_model',
+            'other_field'  => 'user',
+            'join_self_as' => 'country',
+            'join_table'   => 'user',
+        ),
+        'customer_order' => array(
+            'class'        => 'customer_order_model',
+            'other_field'  => 'customer_order',
+            'join_self_as' => 'country',
+            'join_table'   => 'customer_order',
+        ),
     );
 
     public function __construct($id = null) {

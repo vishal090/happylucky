@@ -16,10 +16,20 @@ class User_Model extends MY_DataMapper {
     var $table = "user";
     var $validation;
     var $has_one = array(
-        'country'
+        'country' => array(
+            'class'         => 'country_model',
+            'other_field'   => 'country',
+            'join_other_as' => 'country',
+            'join_table'    => 'user',
+        ),
     );
     var $has_many = array(
-        'customer_order'
+        'customer_order' => array(
+            'class'        => 'customer_order_model',
+            'other_field'  => 'customer_order',
+            'join_self_as' => 'user',
+            'join_table'   => 'customer_order',
+        ),
     );
 
     /**

@@ -14,8 +14,18 @@ require_once "my_datamapper.php";
 class Amulet_Type_Model extends MY_DataMapper {
     var $table = "amulet_type";
     var $has_many = array(
-        'amulet_type_image',
-        'amulet'
+        'amulet_type_image' => array(
+            'class'        => 'amulet_type_image_model',
+            'other_field'  => 'amulet_type_image',
+            'join_self_as' => 'amulet_type',
+            'join_table'   => 'amulet_type_image',
+        ),
+        'amulet' => array(
+            'class'        => 'amulet_model',
+            'other_field'  => 'amulet',
+            'join_self_as' => 'amulet_type',
+            'join_table'   => 'amulet',
+        ),
     );
 
     public function __construct($id = null) {

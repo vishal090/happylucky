@@ -1,6 +1,6 @@
 <!-- Login Bar -->
 <div class="grid_6">
-<?php if(!get_session('user_id')) {
+<?php if(!get_session('user_id') || get_session('user_type') == 'ADMIN') {
         // Login
         $this->load->view('common/login');
         // End Login
