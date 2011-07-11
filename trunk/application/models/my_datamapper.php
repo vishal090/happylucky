@@ -56,14 +56,15 @@ class MY_DataMapper extends DataMapper {
      * @param int $page_size (Default is 10)
      * @return void
      */
-    public function get_pagination($page_size = 10) {
+    public function get_pagination() {
         $this->load->library('MY_Pagination');
         $conf = array(
             'total_rows' => $this->paged->total_rows,
-            'base_url' => $this->_get_curr_url(),
-            'per_page' => $page_size
+            'base_url'   => $this->_get_curr_url(),
+            'per_page'   => $this->paged->page_size
         );
-        $pagination = new MY_Pagination($conf);
+        $pagination = new MY_Pagination();
+        $pagination->initialize($conf);
         return $pagination;
     }
 

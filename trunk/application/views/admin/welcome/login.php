@@ -10,7 +10,13 @@ $this->lang->load ('general', get_cookie ('language'));
     <?php 
         echo link_tag('common/style/960/960.css'); 
         echo link_tag('common/style/main.css'); 
+        echo script_tag('common/script/jquery-1.6.1.js');
     ?>
+    <script>
+        $(document).ready(function() {
+            $('#email').focus();
+        });
+    </script>
 </head>
 <body bgcolor="#DFEFFC">
 

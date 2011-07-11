@@ -4,6 +4,9 @@ var base_url = '<?php echo base_url(); ?>';
 
 // language variable
 lang_confirm_delete                   = '<?php echo lang('confirm_delete'); ?>';
+lang_error                            = '<?php echo lang('error'); ?>';
+lang_done                             = '<?php echo lang('done'); ?>';
+lang_cancel                           = '<?php echo lang('cancel'); ?>';
 lang_invalid_input                    = '<?php echo lang('invalid_input'); ?>';
 lang_positive_integer_warning_message = '<?php echo lang('positive_integer_warning_message'); ?>';
 lang_positive_integer_tooltip         = '<?php echo lang('positive_integer_tooltip');?>';
@@ -39,5 +42,9 @@ $scripts = array(
 
 foreach ($scripts as $js)
     echo script_tag('common/script/' . $js) . "\n";
+
+$ckeditor = glob('application/libraries/ckeditor/*.js');
+foreach ($ckeditor as $ck)
+    echo script_tag($ck);
 
 ?>

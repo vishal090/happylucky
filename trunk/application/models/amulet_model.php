@@ -14,12 +14,32 @@ require_once "my_datamapper.php";
 class Amulet_Model extends MY_DataMapper {
     var $table = "amulet";
     var $has_one = array(
-        'amulet_type',
-        'monk'
+        'amulet_type' => array(
+            'class'         => 'amulet_type_model',
+            'other_field'   => 'amulet_type',
+            'join_other_as' => 'amulet_type',
+            'join_table'    => 'amulet',
+        ),
+        'monk' => array(
+            'class'         => 'monk_model',
+            'other_field'   => 'monk',
+            'join_other_as' => 'monk',
+            'join_table'    => 'amulet',
+        ),
     );
     var $has_many = array(
-        'amulet_ability',
-        'amulet_product'
+        'amulet_ability' => array(
+            'class'        => 'amulet_ability_model',
+            'other_field'  => 'amulet_ability',
+            'join_self_as' => 'amulet',
+            'join_table'   => 'amulet_ability',
+        ),
+        'amulet_product' => array(
+            'class'        => 'amulet_product_model',
+            'other_field'  => 'amulet_product',
+            'join_self_as' => 'amulet',
+            'join_table'   => 'amulet_product',
+        ),
     );
 
     public function __construct($id = null) {

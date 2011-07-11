@@ -35,6 +35,16 @@
 <!-- A container to keep the jQuery confirm dialog -->
 <div id="confirm-dialog"></div>
 
+<div id="ckeditor-dialog" style="display: none;">
+<?php 
+    echo form_textarea(array(
+        'name'  => 'ckeditor-dialog-done',
+        'id'    => 'ckeditor-dialog-done',
+        'class' => 'ckeditor',
+    ));
+?>
+</div>
+
 <!-- Header -->
 <div class="header">
     <!-- Banner -->

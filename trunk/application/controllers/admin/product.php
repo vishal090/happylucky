@@ -21,12 +21,86 @@ class Product extends MY_Controller {
         parent::__construct();
         $this->lang->load('product');
         $this->load->Model('product_model');
+        $this->vars['extra_js'] = array('admin/product.js');
     }
 
-    public function index() {
+    public function index($page = 1) {
         $products = new Product_Model();
+        $products->get_paged($page);
         $this->vars['title'] = lang('product_management');
-        $this->vars['product'] = $products;
+        $this->vars['products'] = $products;
+        $this->vars['pagination'] = $products->get_pagination();
         $this->load_view('admin/product/list', $this->vars);
+    }
+
+    public function index_add_edit($id = false) {
+        $this->vars['title'] = $id ? lang('product_edit_product')
+                                   : lang('product_add_new_product');
+        $this->vars['product_id'] = $id;
+        $this->load_view('admin/product/index_add_edit', $this->vars);
+    }
+
+    public function images_add_edit($id) {
+        $this->vars['title'] = lang('product_edit_product');
+        $this->vars['product_id'] = $id;
+        $this->load->view('admin/product/image', $this->vars);
+    }
+
+    public function add() {
+        // Set an empty object as the product variable is required
+        $this->vars['product'] = new Product_Model();
+        $this->vars['product']->is_amulet();
+
+        // txt refer to textbox, this value will auto populate into
+        // the textbox
+        $this->vars['txt']['amulet']    = '';
+        // txt refer to hidden input, this value will auto populate into
+        // the hidden field
+        $this->vars['hidden']['amulet_id']    = '';
+        // cb refer to checkbox, this is to check whether the checkbox
+        // is checked
+        $this->vars['radio']['is_retail']    = false;
+        $this->vars['radio']['is_wholesale'] = false;
+        $this->load->view('admin/product/add_edit', $this->vars);
+    }
+
+    public function edit($id) {
+        $product = new Product_Model($id);
+        $product->is_amulet();
+
+        $this->vars['product']      = $product;
+        $this->vars['radio']        = array();
+
+        if($product->product_type == Product_Model::TYPE_BOTH) 
+            $this->vars['radio']['is_both'] = 1;
+        else if($product->product_type == Product_Model::TYPE_RETAIL)
+            $this->vars['radio']['is_retail']    = 1;
+        else if($product->product_type == Product_Model::TYPE_WHOLESALE)
+            $this->vars['radio']['is_wholesale'] = 1;
+        $this->load->view('admin/product/add_edit', $this->vars);
+    }
+
+    public function save($id = null) {
+        $product = new Product_Model($id);
+        $product->product_code       = get_post('product_code');
+        $product->product_name       = get_post('product_name');
+        $product->product_desc       = get_post('product_desc');
+        $product->standard_price     = get_post('standard_price');
+        $product->quantity_available = get_post('quantity_available');
+        $product->min_quantity       = get_post('min_quantity');
+        $product->total_num_sold     = 0;
+        $product->created_date       = time();
+        $product->product_type       = get_post('type');
+
+        if($product->save()) {
+            redirect('admin/product/index_add_edit/'.$product->id);
+        }
+        else
+            $this->load->view('admin/product/add_edit', $this->vars);
+    }
+
+    public function delete($id) {
+        $product = new Product_Model($id);
+        $product->delete();
     }
 }

@@ -15,7 +15,12 @@ class Ability_Model extends MY_DataMapper {
     var $table = "ability";
     var $validation;
     var $has_many = array(
-        'amulet_ability'
+        'amulet_ability' => array(
+            'class'        => 'amulet_ability_model',
+            'other_field'  => 'amulet_ability',
+            'join_self_as' => 'ability',
+            'join_table'   => 'amulet_ability',
+        )
     );
 
     public function __construct($id = null) {
