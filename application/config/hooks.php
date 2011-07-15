@@ -14,7 +14,7 @@ $hook['post_controller_constructor'] = array(
                                         'class'    => 'MY_Hook',
                                         'function' => 'post_controller_constructor',
                                         'filename' => 'MY_Hook.php',
-                                        'filepath' => 'application/hooks',
+                                        'filepath' => 'hooks',
                                         'param'    => array(),
                                     );
 
