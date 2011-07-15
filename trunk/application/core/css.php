@@ -1,5 +1,6 @@
 <?php
 
+// $styles = get_files_recursive('common/style/', 'css');
 // include file
 $styles = array(
     '960/960.css',
@@ -10,6 +11,7 @@ $styles = array(
     'top-menu/menu.css',
     'tipsy/tipsy.css',
     'login/front.css',
+    'blueimp-file-upload/jquery.fileupload-ui.css',
     'main.css',
 );
 

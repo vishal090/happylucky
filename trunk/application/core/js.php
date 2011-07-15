@@ -21,8 +21,8 @@ lang_integer_tooltip                  = '<?php echo lang('integer_tooltip');?>';
 
 // include file
 $scripts = array(
-    'jquery-1.6.1.js',
-    'jquery-ui-1.8.13.custom.min.js',
+    'jquery-1.6.2.min.js',
+    'jquery-ui-1.8.14.custom.min.js',
     'jquery.autocomplete.js',
     'ImageAutoComplete.js',
     'jquery-ui-timepicker-addon.js',
@@ -32,6 +32,14 @@ $scripts = array(
     'jquery.lightbox-0.5.js',
     'jquery.validate.js',
     'jquery.maskedinput.js',
+    'blueimp-file-upload/jquery.fileupload.js',
+    'blueimp-file-upload/jquery.fileupload-ui.js',
+    'blueimp-file-upload/jquery.fileupload-uix.js',
+    'blueimp-file-upload/jquery.iframe-transport.js',
+    'blueimp-file-upload/jquery.tmpl.js',
+    'blueimp-file-upload/jquery.image-gallery.js',
+    'blueimp-file-upload/application.js',
+    'jquery.cookie.js',
     'date.format.js',
     'login/jquery.pop.js',
     'login/jquery.tipsy.js',

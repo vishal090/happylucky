@@ -7,7 +7,6 @@ class MY_Hook {
 
         $dir   = $ci->router->directory;
         $class = $ci->router->class;
-        echo "dfsfjsofisdjfosjdf";
 
         switch($dir) {
             case 'admin/':

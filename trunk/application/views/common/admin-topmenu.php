@@ -11,9 +11,21 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo site_url('admin/amulet');?>">
+            <a href="<?php echo site_url('admin/amulet');?>" class="parent">
                 <span><?php echo lang('amulet_management');?></span>
             </a>
+            <ul>
+                <li>
+                    <a href="<?php echo site_url('admin/amulet_type');?>">
+                        <span><?php echo lang('amulet_type');?></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('admin/ability');?>">
+                        <span><?php echo lang('ability');?></span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="<?php echo site_url('admin/monk');?>">

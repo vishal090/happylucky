@@ -68,6 +68,7 @@ $autoload['helper'] = array(
     'language',
     'form',
     'url',
+    'file',
     'array',
     'cookie',
     'general',
