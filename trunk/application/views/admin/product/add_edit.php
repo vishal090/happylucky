@@ -23,6 +23,10 @@ $(document).ready(function() {
             $('tr.amulet-area').hide(1000);
         }
     });
+    $('.wysiwyg').ckeditor(
+        function(){
+        }
+    );
 });
 </script>
 
@@ -115,6 +119,7 @@ $(document).ready(function() {
                         'id'    => 'product_desc',
                         'value' => $product->product_desc,
                         'row'   => '7',
+                        'class' => 'wysiwyg'
                     ));
                 ?>
             </td>

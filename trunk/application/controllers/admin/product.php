@@ -20,7 +20,8 @@ class Product extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->lang->load('product');
-        $this->load->Model('product_model');
+        $this->load->model('product_model');
+        $this->load->library('ckeditor/ckeditor');
         $this->vars['extra_js'] = array('admin/product.js');
     }
 

@@ -101,12 +101,12 @@ $(document).ready(function() {
             $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
         }
     })
-/*    .data('autocomplete')._renderitem = function(ul, item){
+    .data('autocomplete')._renderitem = function(ul, item){
         return $('<li></li>')
                 .data('item.autocomplete', item)
                 .append('<a>' + format_country(item) + '</a>')
                 .appendto(ul);
-    }*/;
+    };
 });
 
 function format_country(country) {

@@ -19,7 +19,7 @@ class MY_Hook {
             default:
                 if($class != 'welcome') {
                     if(!get_session('user_id')) {
-                        redirect('admin/welcome');
+                        redirect('welcome');
                     }
                 }
                 break;

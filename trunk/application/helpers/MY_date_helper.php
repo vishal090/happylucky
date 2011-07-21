@@ -25,7 +25,7 @@ if (!function_exists('to_unix_time')) {
  */
 if (!function_exists('to_human_time')) {
     function to_human_date($date, $format = '%j %F %Y') {
-        return (is_int($date)) ? mdate($format, $date) : null;
+        return (is_int($date)) ? mdate($format, $date) : mdate($format, (int)$date);
     }
 }
 
@@ -38,7 +38,7 @@ if (!function_exists('to_human_time')) {
  * @return string
  */
 if (!function_exists('to_human_date_time')) {
-    function to_human_date_time($time, $format = '$j %F %Y %h:%i:%A') {
+    function to_human_date_time($time, $format = '%j %F %Y %h:%i:%A') {
         return to_human_date($time, $format);
     }
 }

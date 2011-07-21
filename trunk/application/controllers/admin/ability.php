@@ -33,29 +33,18 @@ class Ability extends MY_Controller {
         $this->load_view('admin/ability/list', $this->vars);
     }
 
-    public function index_add_edit($id = false) {
-        $this->vars['title'] = $id ? lang('ability_edit_ability')
-                                   : lang('ability_add_new_ability');
-        $this->vars['ability_id'] = $id;
-        $this->load_view('admin/ability/index_add_edit', $this->vars);
-    }
-
-    public function images_add_edit($id) {
-        $this->vars['title'] = lang('ability_edit_ability');
-        $this->vars['ability_id'] = $id;
-        $this->load->view('admin/ability/image', $this->vars);
-    }
-
     public function add() {
         // Set an empty object as the ability variable is required
         $this->vars['ability'] = new Ability_Model();
-        $this->load->view('admin/ability/add_edit', $this->vars);
+        $this->vars['title'] = lang('ability_add_new_ability');
+        $this->load_view('admin/ability/add_edit', $this->vars);
     }
 
     public function edit($id) {
         $ability = new Ability_Model($id);
         $this->vars['ability'] = $ability;
-        $this->load->view('admin/ability/add_edit', $this->vars);
+        $this->vars['title'] = lang('ability_edit_ability');
+        $this->load_view('admin/ability/add_edit', $this->vars);
     }
 
     public function save($id = null) {
@@ -64,10 +53,10 @@ class Ability extends MY_Controller {
         $ability->ability_desc = get_post('ability_desc');
 
         if($ability->save()) {
-            redirect('admin/ability/index_add_edit/'.$ability->id);
+            redirect('admin/ability/edit/'.$ability->id);
         }
         else
-            $this->load->view('admin/ability/add_edit', $this->vars);
+            $this->load_view('admin/ability/add_edit', $this->vars);
     }
 
     public function delete($id) {
