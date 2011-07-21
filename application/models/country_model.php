@@ -38,9 +38,9 @@ class Country_Model extends MY_DataMapper {
         parent::__construct($id);
     }
 
-    public function search($q) {
-        $this->ilike('country_name', $q);
-        $this->or_ilike('iso_code_3', $q)->get();
+    public function ajax_search($q) {
+        $this->search($q);
+        $this->get();
 
         $country_array = $this->to_array($this);
 

@@ -12,7 +12,7 @@
         value="<?php echo lang('delete');?>" />
     <input type="button" class="button" 
         value="<?php echo lang('add_new');?>" 
-        onclick="redirect('<?php echo site_url('admin/ability/index_add_edit');?>');" />
+        onclick="redirect('<?php echo site_url('admin/ability/add');?>');" />
 </div>
 <!-- End Action Button -->
 <?php echo clear_div();?>
@@ -42,7 +42,7 @@
             ?></td>
             <td><?php 
                 echo anchor(
-                    site_url('admin/ability/index_add_edit/'.$ability->id),
+                    site_url('admin/ability/edit/'.$ability->id),
                     $ability->ability_name
                 );
             ?></td>

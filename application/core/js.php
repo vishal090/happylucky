@@ -23,7 +23,7 @@ lang_integer_tooltip                  = '<?php echo lang('integer_tooltip');?>';
 $scripts = array(
     'jquery-1.6.2.min.js',
     'jquery-ui-1.8.14.custom.min.js',
-    'jquery.autocomplete.js',
+    // 'jquery.autocomplete.js',
     'ImageAutoComplete.js',
     'jquery-ui-timepicker-addon.js',
     'jquery.contextMenu.js',
@@ -51,8 +51,12 @@ $scripts = array(
 foreach ($scripts as $js)
     echo script_tag('common/script/' . $js) . "\n";
 
-$ckeditor = glob('application/libraries/ckeditor/*.js');
+$ckeditor = array(
+    'ckeditor.js',
+    'config.js',
+    'adapters/jquery.js',
+);
 foreach ($ckeditor as $ck)
-    echo script_tag($ck);
+    echo script_tag('application/libraries/ckeditor/'.$ck) . "\n";
 
 ?>

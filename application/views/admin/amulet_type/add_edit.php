@@ -1,4 +1,12 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');?>
+<script>
+$(document).ready(function() {
+    $('.wysiwyg').ckeditor(
+        function(){
+        }
+    );
+});
+</script>
 
 <form id="amulet_type_add_edit" method="POST" 
       action="<?php echo site_url("admin/amulet_type/save/".$amulet_type->id);?>">
@@ -25,6 +33,7 @@
                         'id'    => 'amulet_type_desc',
                         'value' => $amulet_type->amulet_desc,
                         'row'   => '7',
+                        'class' => 'wysiwyg'
                     ));
                 ?>
             </td>

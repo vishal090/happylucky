@@ -33,7 +33,7 @@ class Country extends MY_Controller {
      */
     public function search() {
         $q = get_post('term');
-        $country = $this->country->search($q);
+        $country = $this->country->ajax_search($q);
         echo json_encode($country);
     }
 }

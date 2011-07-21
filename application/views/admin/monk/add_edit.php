@@ -1,4 +1,12 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');?>
+<script>
+$(document).ready(function() {
+    $('.wysiwyg').ckeditor(
+        function(){
+        }
+    );
+});
+</script>
 
 <form id="monk_add_edit" method="POST" 
       action="<?php echo site_url("admin/monk/save/".$monk->id);?>">
@@ -25,6 +33,7 @@
                         'id'    => 'monk_story',
                         'value' => $monk->monk_story,
                         'row'   => '7',
+                        'class' => 'wysiwyg'
                     ));
                 ?>
             </td>
