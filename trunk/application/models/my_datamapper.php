@@ -85,5 +85,36 @@ class MY_DataMapper extends DataMapper {
                               $info_object = 'paged', $iterated = FALSE) {
         return parent::get_paged($page, $page_size, $page_num_by_rows, $info_object, $iterated);
     }
+
+    /**
+     * This function will return array as result.
+     * NOTE: This function should only called after get() or get_iterated()
+     *       is called.
+     * 
+     * @return array
+     */
+    public function to_array() {
+        $result_array = array();
+        foreach($this as $obj) {
+            $row_array = array();
+            foreach($obj->stored as $attr => $value) {
+                $row_array[$attr] = $value;
+            }
+            $result_array[] = $row_array;
+        }
+        return $result_array;
+    }
+
+    /**
+     * This function will return array as result.
+     * However, this function should only be call before get() or 
+     * get_iterated() is called.
+     * 
+     * @return array
+     */
+    public function get_array() {
+        $this->get_iterated();
+        return $this->to_array();
+    }
 }
 ?>

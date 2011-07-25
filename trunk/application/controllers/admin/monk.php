@@ -74,4 +74,10 @@ class Monk extends MY_Controller {
         $monk = new Monk_Model($id);
         $monk->delete();
     }
+
+    public function search() {
+        $q = get_post('term');
+        $monk = $this->monk_model->ajax_search($q);
+        echo json_encode($monk);
+    }
 }

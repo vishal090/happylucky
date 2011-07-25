@@ -18,7 +18,7 @@
                             'name'  => 'ability_name',
                             'id'    => 'ability_name',
                             'value' => $ability->ability_name,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -32,7 +32,7 @@
                             'id'    => 'ability_desc',
                             'value' => $ability->ability_desc,
                             'row'   => '7',
-                            'class' => 'ckeditor'
+                            'class' => 'validate[required] ckeditor'
                         ));
                     ?>
                 </td>

@@ -1,6 +1,6 @@
 /*
- * AQUANTUM Demo Application
- * http://aquantum-demo.appspot.com/file-upload
+ * jQuery File Upload Plugin JS Example 5.0.2
+ * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
  * https://blueimp.net
@@ -9,71 +9,34 @@
  * http://creativecommons.org/licenses/MIT/
  */
 
-/*jslint nomen: true, unparam: true, regexp: true */
+/*jslint nomen: true */
 /*global $ */
 
-var Application = function (settings, locale) {
+$(function () {
     'use strict';
 
-    // Generic:
-    // --------
-    $('html:first').removeClass('no-js');
-    // Initialize theme switcher:
-    $('#theme-switcher select').change(function () {
-        var theme = $('#theme');
-        theme.prop(
-            'href',
-            theme.prop('href').replace(
-                /[\w\-]+\/jquery-ui.css/,
-                $(this).val() + '/jquery-ui.css'
-            )
-        );
-        $.cookie('theme', $(this).val());
-    }).val($.cookie('theme') || 'base').trigger('change');
-    // Initialize imagegallery plugin:
-    $('a[rel=gallery]').imagegallery();
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload();
 
-    // File Upload:
-    // ------------
-    $('#tabs').tabs();
-    $('#radio').buttonset();
-    $('#fileupload').fileupload({
-        maxFileSize: settings.max_file_size,
-        authenticityTokenName: settings.authenticity_token &&
-            settings.authenticity_token.name
+    // Load existing files:
+    $.getJSON($('#fileupload form').prop('action'), function (files) {
+        var fu = $('#fileupload').data('fileupload');
+        fu._adjustMaxNumberOfFiles(-files.length);
+        fu._renderDownload(files)
+            .appendTo($('#fileupload .files'))
+            .fadeIn(function () {
+                // Fix for IE7 and lower:
+                $(this).show();
+            });
     });
-    $('#radio input').click(function (e) {
-        $('#fileupload').fileupload(
-            'option',
-            'autoUpload',
-            $(this).val() === 'auto'
-        );
-    });
-    // Create jQuery UI buttons for existing files:
-    $('#fileupload .files .delete button').button({
-        text: false,
-        icons: {primary: 'ui-icon-trash'}
-    });
-    // Enable drag-to-desktop for existing files:
-    $('#fileupload .files .template-download a').each(
-        $.blueimpUIX.fileupload.prototype._enableDragToDesktop
-    );
+
     // Open download dialogs via iframes,
     // to prevent aborting current uploads:
-    $('#fileupload .files a:not([rel^=gallery])').live('click', function (e) {
+    $('#fileupload .files a:not([target^=_blank])').live('click', function (e) {
         e.preventDefault();
         $('<iframe style="display:none;"></iframe>')
             .prop('src', this.href)
             .appendTo('body');
     });
 
-    // Home page:
-    // ----------
-    $('#home .demos a').button();
-    
-    // Login page:
-    // -----------
-    $('#login button.openid-provider').button({icons: {primary: 'icon-openid'}});
-    $('#login #openid-provider-generic button, #logout-link').button();
-
-};
+});

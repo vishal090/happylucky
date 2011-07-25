@@ -5,6 +5,36 @@ $(document).ready(function() {
         function(){
         }
     );
+    $('#amulet_add_edit').validationEngine('attach');
+
+    $('input#monk').autocomplete({
+        highlight: true,
+        minLength: 1,
+        scroll: true,
+        dataType: 'json',
+        source: base_url + 'admin/monk/search',
+        focus: function(event, ui) {
+            $(this).val(ui.item.monk_name);
+            return false;
+        },
+        select: function(event, ui) {
+            $(this).val(ui.item.monk_name);
+            $('#monk_id').val(ui.item.id);
+            return false;
+        },
+        open: function() {
+            $(this).removeClass('ui-corner-all').addClass('ui-corner-top');
+        },
+        close: function() {
+            $(this).removeClass('ui-corner-top').addClass('ui-corner-all');
+        }
+    })
+    .data('autocomplete')._renderItem = function(ul, item){
+        return $('<li></li>')
+                .data('item.autocomplete', item)
+                .append('<a>' + item.monk_name + '</a>')
+                .appendTo(ul);
+    };
 });
 </script>
 
@@ -19,7 +49,7 @@ $(document).ready(function() {
                         'name'  => 'amulet_code',
                         'id'    => 'amulet_code',
                         'value' => $amulet->amulet_code,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -30,7 +60,7 @@ $(document).ready(function() {
                         'name'  => 'amulet_name',
                         'id'    => 'amulet_name',
                         'value' => $amulet->amulet_name,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -44,7 +74,7 @@ $(document).ready(function() {
                         'id'    => 'amulet_desc',
                         'value' => $amulet->amulet_desc,
                         'row'   => '7',
-                        'class' => 'wysiwyg'
+                        'class' => 'validate[required] wysiwyg'
                     ));
                 ?>
             </td>
@@ -108,7 +138,7 @@ $(document).ready(function() {
             </td>
         </tr>
         <tr>
-            <td class="label"><?php echo lang('amulet_ability');?></td>
+            <td class="label"><?php echo lang('ability');?></td>
             <td>
                 <?php 
                     echo form_hidden(array(

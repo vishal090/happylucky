@@ -11,7 +11,7 @@ $styles = array(
     'top-menu/menu.css',
     'tipsy/tipsy.css',
     'login/front.css',
-    'blueimp-file-upload/jquery.fileupload-ui.css',
+    'validationEngine.jquery.css',
     'main.css',
 );
 

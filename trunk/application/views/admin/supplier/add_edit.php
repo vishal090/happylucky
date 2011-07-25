@@ -23,7 +23,7 @@
                             'name'  => 'supplier_name',
                             'id'    => 'supplier_name',
                             'value' => $supplier->supplier_name,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -34,7 +34,7 @@
                             'name'  => 'contact_no',
                             'id'    => 'contact_no',
                             'value' => $supplier->contact_no,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -47,7 +47,7 @@
                             'name'  => 'email',
                             'id'    => 'email',
                             'value' => $supplier->email,
-                            'class' => 'text'
+                            'class' => 'validate[required,custom[email]] text'
                         ));
                     ?>
                 </td>
@@ -66,7 +66,7 @@
                             'name'  => 'address',
                             'id'    => 'address',
                             'value' => $supplier->address,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -101,7 +101,7 @@
                             'name'  => 'city',
                             'id'    => 'city',
                             'value' => $supplier->city,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -114,7 +114,7 @@
                             'name'  => 'state',
                             'id'    => 'state',
                             'value' => $supplier->state,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>

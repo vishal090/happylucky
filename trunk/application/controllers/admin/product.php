@@ -44,7 +44,8 @@ class Product extends MY_Controller {
     public function images_add_edit($id) {
         $this->vars['title'] = lang('product_edit_product');
         $this->vars['product_id'] = $id;
-        $this->load->view('admin/product/image', $this->vars);
+        // $this->load->view('admin/product/image', $this->vars);
+        $this->load->view('common/upload', $this->vars);
     }
 
     public function add() {
