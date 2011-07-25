@@ -5,6 +5,7 @@ $(document).ready(function() {
         function(){
         }
     );
+    $('#monk_add_edit').validationEngine('attach');
 });
 </script>
 
@@ -19,7 +20,7 @@ $(document).ready(function() {
                         'name'  => 'monk_name',
                         'id'    => 'monk_name',
                         'value' => $monk->monk_name,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -33,7 +34,7 @@ $(document).ready(function() {
                         'id'    => 'monk_story',
                         'value' => $monk->monk_story,
                         'row'   => '7',
-                        'class' => 'wysiwyg'
+                        'class' => 'validate[required] wysiwyg'
                     ));
                 ?>
             </td>

@@ -18,15 +18,18 @@ $(document).ready(function() {
     $('#is_amulet').click(function() {
         if($(this).is(':checked')) {
             $('tr.amulet-area').show(1000);
+            $('tr.amulet-area').attr('disabled', false);
         }
         else {
             $('tr.amulet-area').hide(1000);
+            $('tr.amulet-area').attr('disabled', true);
         }
     });
     $('.wysiwyg').ckeditor(
         function(){
         }
     );
+    $('#product_add_edit').validationEngine('attach');
 });
 </script>
 
@@ -46,7 +49,7 @@ $(document).ready(function() {
                         'name'  => 'product_code',
                         'id'    => 'product_code',
                         'value' => $product->product_code,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -58,6 +61,7 @@ $(document).ready(function() {
                         'name'    => 'type',
                         'id'      => 'type_retail',
                         'value'   => 'RETAIL',
+                        'class'   => 'validate[required] radio',
                         'checked' => element('is_retail', $radio),
                         'style'   => 'margin-right: 10px;
                                       margin-left : 5px',
@@ -68,6 +72,7 @@ $(document).ready(function() {
                         'name'    => 'type',
                         'id'      => 'type_wholesale',
                         'value'   => 'WHOLESALE',
+                        'class'   => 'validate[required] radio',
                         'checked' => element('is_wholesale', $radio),
                         'style'   => 'margin-right: 10px;
                                       margin-left : 5px',
@@ -78,6 +83,7 @@ $(document).ready(function() {
                         'name'    => 'type',
                         'id'      => 'type_both',
                         'value'   => 'BOTH',
+                        'class'   => 'validate[required] radio',
                         'checked' => element('is_both', $radio),
                         'style'   => 'margin-right: 10px;
                                       margin-left : 5px',
@@ -94,7 +100,7 @@ $(document).ready(function() {
                         'name'  => 'product_name',
                         'id'    => 'product_name',
                         'value' => $product->product_name,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -105,7 +111,7 @@ $(document).ready(function() {
                         'name'  => 'standard_price',
                         'id'    => 'standard_price',
                         'value' => $product->standard_price,
-                        'class' => 'positive text'
+                        'class' => 'validate[required] positive text'
                     ));
                 ?>
             </td>
@@ -119,7 +125,7 @@ $(document).ready(function() {
                         'id'    => 'product_desc',
                         'value' => $product->product_desc,
                         'row'   => '7',
-                        'class' => 'wysiwyg'
+                        'class' => 'validate[required] wysiwyg'
                     ));
                 ?>
             </td>
@@ -132,7 +138,7 @@ $(document).ready(function() {
                         'name'  => 'quantity_available',
                         'id'    => 'quantity_available',
                         'value' => $product->quantity_available,
-                        'class' => 'text positive-integer'
+                        'class' => 'validate[required] text positive-integer'
                     ));
                 ?>
             </td>
@@ -143,7 +149,7 @@ $(document).ready(function() {
                         'name'  => 'min_quantity',
                         'id'    => 'min_quantity',
                         'value' => $product->min_quantity,
-                        'class' => 'text positive-integer'
+                        'class' => 'validate[required] text positive-integer'
                     ));
                 ?>
             </td>
@@ -180,7 +186,7 @@ $(document).ready(function() {
                         'name'  => 'amulet',
                         'id'    => 'amulet',
                         'value' => element('amulet', $txt),
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>

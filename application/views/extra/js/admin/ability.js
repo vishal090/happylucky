@@ -17,4 +17,6 @@ $(document).ready(function() {
         if(msg != '')
             ui_alert(lang_error, msg);
     });
+
+    $('#ability_add_edit').validationEngine('attach');
 });

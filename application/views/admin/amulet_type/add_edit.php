@@ -5,6 +5,7 @@ $(document).ready(function() {
         function(){
         }
     );
+    $('#amulet_type_add_edit').validationEngine('attach');
 });
 </script>
 
@@ -19,7 +20,7 @@ $(document).ready(function() {
                         'name'  => 'amulet_type_name',
                         'id'    => 'amulet_type_name',
                         'value' => $amulet_type->amulet_type_name,
-                        'class' => 'text'
+                        'class' => 'validate[required] text'
                     ));
                 ?>
             </td>
@@ -33,7 +34,7 @@ $(document).ready(function() {
                         'id'    => 'amulet_type_desc',
                         'value' => $amulet_type->amulet_desc,
                         'row'   => '7',
-                        'class' => 'wysiwyg'
+                        'class' => 'validate[required] wysiwyg'
                     ));
                 ?>
             </td>

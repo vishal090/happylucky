@@ -8,13 +8,17 @@ $this->lang->load ('general', get_cookie ('language'));
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><?php echo isset($page_title) ? $page_title : lang('happy_lucky'); ?></title>
     <?php 
-        echo link_tag('common/style/960/960.css'); 
-        echo link_tag('common/style/main.css'); 
+        echo link_tag('common/style/960/960.css')."\n"; 
+        echo link_tag('common/style/main.css')."\n"; 
+        echo link_tag('common/style/validationEngine.jquery.css')."\n"; 
         echo script_tag('common/script/jquery-1.6.2.min.js');
+        echo script_tag('common/script/jquery.validationEngine-en.js');
+        echo script_tag('common/script/jquery.validationEngine.js');
     ?>
     <script>
         $(document).ready(function() {
             $('#email').focus();
+            $('#login_form').validationEngine('attach');
         });
     </script>
 </head>
@@ -47,11 +51,11 @@ $this->lang->load ('general', get_cookie ('language'));
                 <table>
                     <tr>
                         <td class="label"><?php echo lang ('email');?> :</td>
-                        <td><input type="text" class="text" id="email" name="email" value="" /></td>
+                        <td><input type="text" class="validate[required,custom[email]] text" id="email" name="email" value="" /></td>
                     </tr>
                     <tr>
                         <td class="label"><?php echo lang ('user_password');?> :</td>
-                        <td><input type="password" class="text" id="password" name="password" value="" /></td>
+                        <td><input type="password" class="validate[required] text" id="password" name="password" value="" /></td>
                     </tr>
                     <tr>
                         <td colspan="2"><div class="error"><?php echo $this->session->flashdata ('login_error');?>&nbsp;</div></td>

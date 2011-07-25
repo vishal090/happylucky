@@ -1,18 +1,22 @@
 <?php
 $lang['happy_lucky'] = 'Happy Lucky';
 
-$lang['add_new']  = 'Add New';
-$lang['delete']   = 'Delete';
-$lang['save']     = 'Save';
-$lang['done']     = 'Done';
-$lang['cancel']   = 'Cancel';
-$lang['back']     = 'Back';
-$lang['next']     = 'Next';
-$lang['previous'] = 'Previous';
-$lang['first']    = 'First';
-$lang['last']     = 'Last';
-$lang['more']     = 'More';
-$lang['error']    = 'Error';
+$lang['add_new']       = 'Add New';
+$lang['delete']        = 'Delete';
+$lang['add_files']     = 'Add Files';
+$lang['delete_files']  = 'Delete Files';
+$lang['start_upload']  = 'Start Upload';
+$lang['cancel_upload'] = 'Cancel Upload';
+$lang['save']          = 'Save';
+$lang['done']          = 'Done';
+$lang['cancel']        = 'Cancel';
+$lang['back']          = 'Back';
+$lang['next']          = 'Next';
+$lang['previous']      = 'Previous';
+$lang['first']         = 'First';
+$lang['last']          = 'Last';
+$lang['more']          = 'More';
+$lang['error']         = 'Error';
 
 $lang['general']  = 'General';
 $lang['images']   = 'Images';

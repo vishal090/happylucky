@@ -23,7 +23,7 @@
                             'name'  => 'first_name',
                             'id'    => 'first_name',
                             'value' => $user->first_name,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -34,7 +34,7 @@
                             'name'  => 'last_name',
                             'id'    => 'last_name',
                             'value' => $user->last_name,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -46,7 +46,7 @@
                         echo form_password(array(
                             'name'  => 'password',
                             'id'    => 'password',
-                            'class' => 'text'
+                            'class' => 'validate[required,minSize[5]] text'
                         ));
                     ?>
                 </td>
@@ -56,7 +56,7 @@
                         echo form_password(array(
                             'name'  => 'confirm_password',
                             'id'    => 'confirm_password',
-                            'class' => 'text'
+                            'class' => 'validate[required,equals[password]] text'
                         ));
                     ?>
                 </td>
@@ -69,7 +69,7 @@
                             'name'  => 'security_question',
                             'id'    => 'security_question',
                             'value' => $user->security_question,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -80,7 +80,7 @@
                             'name'  => 'security_answer',
                             'id'    => 'security_answer',
                             'value' => $user->security_answer,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -133,7 +133,8 @@
                         echo form_dropdown(
                             'user_type',
                             $user_type,
-                            $user->user_type
+                            $user->user_type,
+                            'class="validate[required]" id="user_type"'
                         );
                     ?>
                 </td>
@@ -178,7 +179,7 @@
                             'name'  => 'contact_no',
                             'id'    => 'contact_no',
                             'value' => $user->contact_no,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -189,7 +190,7 @@
                             'name'  => 'email',
                             'id'    => 'email',
                             'value' => $user->email,
-                            'class' => 'text'
+                            'class' => 'validate[required,custom[email]] text'
                         ));
                     ?>
                 </td>
@@ -207,7 +208,7 @@
                             'name'  => 'address',
                             'id'    => 'address',
                             'value' => $user->address,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -242,7 +243,7 @@
                             'name'  => 'city',
                             'id'    => 'city',
                             'value' => $user->city,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>
@@ -255,7 +256,7 @@
                             'name'  => 'state',
                             'id'    => 'state',
                             'value' => $user->state,
-                            'class' => 'text'
+                            'class' => 'validate[required] text'
                         ));
                     ?>
                 </td>

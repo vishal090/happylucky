@@ -21,6 +21,9 @@ class Monk_Model extends MY_DataMapper {
     public function __construct($id = null) {
         parent::__construct($id);
     }
+
+    public function ajax_search($q) {
+        $this->search($q);
+        return $this->get_array();
+    }
 }
-
-
