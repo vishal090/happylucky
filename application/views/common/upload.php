@@ -85,13 +85,14 @@
             <td colspan="2"></td>
         {{/if}}
         <td class="delete">
-            <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
+            <button data-type="${delete_type}" data-url="${delete_url}">
+                <?php echo lang('delete');?>
+            </button>
         </td>
     </tr>
 </script>
 <?php echo script_tag('common/script/blueimp-file-upload/jquery.fileupload.js');?>
 <?php echo script_tag('common/script/blueimp-file-upload/jquery.fileupload-ui.js');?>
-<?php echo script_tag('common/script/blueimp-file-upload/jquery.fileupload-uix.js');?>
 <?php echo script_tag('common/script/blueimp-file-upload/jquery.iframe-transport.js');?>
 <?php echo script_tag('common/script/blueimp-file-upload/jquery.tmpl.js');?>
 <?php echo script_tag('common/script/blueimp-file-upload/jquery.image-gallery.js');?>

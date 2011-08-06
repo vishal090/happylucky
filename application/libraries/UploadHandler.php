@@ -50,7 +50,11 @@ class UploadHandler
             )
         );
         if ($options) {
-            $this->options = array_merge_recursive($this->options, $options);
+            $this->options = array_replace_recursive($this->options, $options);
+            if(!file_exists($this->options['upload_dir']))
+                mkdir($this->options['upload_dir'], 0777);
+            if(!file_exists($this->options['image_versions']['thumbnail']['upload_dir']))
+                mkdir($this->options['image_versions']['thumbnail']['upload_dir'], 0777);
         }
     }
     
@@ -68,7 +72,7 @@ class UploadHandler
                 }
             }
             $file->delete_url = $this->options['script_url']
-                .'?file='.rawurlencode($file->name);
+                .'/delete/'.rawurlencode($file->name);
             $file->delete_type = 'DELETE';
             return $file;
         }
@@ -273,9 +277,9 @@ class UploadHandler
         echo json_encode($info);
     }
     
-    public function delete() {
-        $file_name = isset($_REQUEST['file']) ?
-            basename(stripslashes($_REQUEST['file'])) : null;
+    public function delete($filename) {
+        $file_name = isset($filename) ?
+            basename(stripslashes($filename)) : null;
         $file_path = $this->options['upload_dir'].$file_name;
         $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
         if ($success) {
@@ -290,25 +294,3 @@ class UploadHandler
         echo json_encode($success);
     }
 }
-
-// $upload_handler = new UploadHandler();
-// 
-// header('Pragma: no-cache');
-// header('Cache-Control: private, no-cache');
-// header('Content-Disposition: inline; filename="files.json"');
-// 
-// switch ($_SERVER['REQUEST_METHOD']) {
-    // case 'HEAD':
-    // case 'GET':
-        // $upload_handler->get();
-        // break;
-    // case 'POST':
-        // $upload_handler->post();
-        // break;
-    // case 'DELETE':
-        // $upload_handler->delete();
-        // break;
-    // default:
-        // header('HTTP/1.0 405 Method Not Allowed');
-// }
-?>
