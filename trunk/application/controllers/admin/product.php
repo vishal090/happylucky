@@ -12,6 +12,7 @@
  */
 class Product extends MY_Controller {
 
+    private $upload_handler;
     /**
      * __construct 
      * 
@@ -22,6 +23,9 @@ class Product extends MY_Controller {
         $this->lang->load('product');
         $this->load->model('product_model');
         $this->load->library('ckeditor/ckeditor');
+        $this->load->library('UploadHandler');
+        $this->upload_handler = new UploadHandler();
+        $this->upload_handler->init('product');
         $this->vars['extra_js'] = array('admin/product.js');
     }
 
@@ -104,5 +108,30 @@ class Product extends MY_Controller {
     public function delete($id) {
         $product = new Product_Model($id);
         $product->delete();
+    }
+
+    public function upload() {
+        header('Pragma: no-cache');
+        header('Cache-Control: private, no-cache');
+        header('Content-Disposition: inline; filename="files.json"');
+
+        switch ($_SERVER['REQUEST_METHOD']) {
+            case 'HEAD':
+            case 'GET':
+                $this->upload_handler->get();
+                break;
+            case 'POST': // For upload handler
+                $this->upload_handler->post();
+                break;
+            case 'DELETE':
+                $this->upload_handler->delete();
+                break;
+            default:
+                header('HTTP/1.0 405 Method Not Allowed');
+        }
+    }
+
+    public function delete_file($file) {
+        $this->upload_handler->delete($file);
     }
 }

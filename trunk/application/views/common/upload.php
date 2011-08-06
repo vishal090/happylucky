@@ -12,7 +12,7 @@
 -->
 <?php echo link_tag('common/style/blueimp-file-upload/jquery.fileupload-ui.css');?>
 <div id="fileupload">
-    <form action="<?php echo site_url('upload');?>" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo site_url('admin/'.$this->router->class.'/upload');?>" method="POST" enctype="multipart/form-data">
         <div class="fileupload-buttonbar">
             <label class="fileinput-button">
                 <span><?php echo lang('add_files');?>...</span>
