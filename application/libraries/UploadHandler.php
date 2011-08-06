@@ -15,18 +15,34 @@ error_reporting(E_ALL | E_STRICT);
 class UploadHandler
 {
     private $options;
+    private $script_url;
+    private $upload_dir;
+    private $upload_url;
     
-    function __construct($options=null) {
+    function __construct() {
+    }
+
+    /**
+     * Initialize all the path 
+     * 
+     * @param mixed $category 
+     * @return void
+     */
+    public function init($category) {
+        $this->script_url = base_url().'admin/'.$category.'/upload/';
+        $this->upload_dir = BASEPATH.'../images/'.$category.'/';
+        $this->upload_url = dirname($_SERVER['PHP_SELF']).'/images/'.$category.'/';
         $this->options = array(
-            'script_url' => $_SERVER['PHP_SELF'],
-            'upload_dir' => dirname(__FILE__).'/files/',
-            'upload_url' => dirname($_SERVER['PHP_SELF']).'/files/',
+            'script_url' => $this->script_url,
+            'upload_dir' => $this->upload_dir,
+            'upload_url' => $this->upload_url,
             'param_name' => 'files',
             // The php.ini settings upload_max_filesize and post_max_size
             // take precedence over the following max_file_size setting:
             'max_file_size' => null,
             'min_file_size' => 1,
             'accept_file_types' => '/.+$/i',
+            // 'accept_file_types' => 'gif|jpg|png|jpeg',
             'max_number_of_files' => null,
             'discard_aborted_uploads' => true,
             'image_versions' => array(
@@ -42,20 +58,17 @@ class UploadHandler
                 ),
                 */
                 'thumbnail' => array(
-                    'upload_dir' => dirname(__FILE__).'/thumbnails/',
-                    'upload_url' => dirname($_SERVER['PHP_SELF']).'/thumbnails/',
+                    'upload_dir' => $this->upload_dir.'thumbnails/',
+                    'upload_url' => $this->upload_url.'thumbnails/',
                     'max_width' => 80,
                     'max_height' => 80
                 )
             )
         );
-        if ($options) {
-            $this->options = array_replace_recursive($this->options, $options);
-            if(!file_exists($this->options['upload_dir']))
-                mkdir($this->options['upload_dir'], 0777);
-            if(!file_exists($this->options['image_versions']['thumbnail']['upload_dir']))
-                mkdir($this->options['image_versions']['thumbnail']['upload_dir'], 0777);
-        }
+        if(!file_exists($this->upload_dir))
+            mkdir($this->upload_dir, 0777);
+        if(!file_exists($this->options['image_versions']['thumbnail']['upload_dir']))
+            mkdir($this->options['image_versions']['thumbnail']['upload_dir'], 0777);
     }
     
     private function get_file_object($file_name) {
@@ -72,7 +85,7 @@ class UploadHandler
                 }
             }
             $file->delete_url = $this->options['script_url']
-                .'/delete/'.rawurlencode($file->name);
+                .'/delete_file/'.rawurlencode($file->name);
             $file->delete_type = 'DELETE';
             return $file;
         }
@@ -212,7 +225,7 @@ class UploadHandler
             }
             $file->size = $file_size;
             $file->delete_url = $this->options['script_url']
-                .'?file='.rawurlencode($file->name);
+                .'/delete_file/'.rawurlencode($file->name);
             $file->delete_type = 'DELETE';
         } else {
             $file->error = $error;
