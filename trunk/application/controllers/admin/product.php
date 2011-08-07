@@ -22,6 +22,7 @@ class Product extends MY_Controller {
         parent::__construct();
         $this->lang->load('product');
         $this->load->model('product_model');
+        $this->load->model('product_image_model');
         $this->load->library('ckeditor/ckeditor');
         $this->load->library('UploadHandler');
         $this->upload_handler = new UploadHandler();
@@ -121,11 +122,16 @@ class Product extends MY_Controller {
                 $this->upload_handler->get();
                 break;
             case 'POST': // For upload handler
-                $this->upload_handler->post();
+                $ok = $this->upload_handler->post();
+                if($ok) {
+                    // Save to database
+                    $product_img_model = new Product_Image_Model();
+                    // $product_img_model->
+                }
                 break;
-            case 'DELETE':
-                $this->upload_handler->delete();
-                break;
+            // case 'DELETE':
+                // $this->upload_handler->delete();
+                // break;
             default:
                 header('HTTP/1.0 405 Method Not Allowed');
         }

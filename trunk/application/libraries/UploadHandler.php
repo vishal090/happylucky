@@ -18,6 +18,7 @@ class UploadHandler
     private $script_url;
     private $upload_dir;
     private $upload_url;
+    private $delete_url;
     
     function __construct() {
     }
@@ -29,6 +30,7 @@ class UploadHandler
      * @return void
      */
     public function init($category) {
+        $this->delete_url = base_url().'admin/'.$category.'/delete_file/';
         $this->script_url = base_url().'admin/'.$category.'/upload/';
         $this->upload_dir = BASEPATH.'../images/'.$category.'/';
         $this->upload_url = dirname($_SERVER['PHP_SELF']).'/images/'.$category.'/';
@@ -84,8 +86,8 @@ class UploadHandler
                         .rawurlencode($file->name);
                 }
             }
-            $file->delete_url = $this->options['script_url']
-                .'/delete_file/'.rawurlencode($file->name);
+            $file->delete_url = $this->delete_url
+                .rawurlencode($file->name);
             $file->delete_type = 'DELETE';
             return $file;
         }
@@ -224,8 +226,8 @@ class UploadHandler
                 $file->error = 'abort';
             }
             $file->size = $file_size;
-            $file->delete_url = $this->options['script_url']
-                .'/delete_file/'.rawurlencode($file->name);
+            $file->delete_url = $this->delete_url
+                .rawurlencode($file->name);
             $file->delete_type = 'DELETE';
         } else {
             $file->error = $error;
@@ -288,6 +290,7 @@ class UploadHandler
             header('Content-type: text/plain');
         }
         echo json_encode($info);
+        return ! empty($info['name']);
     }
     
     public function delete($filename) {
