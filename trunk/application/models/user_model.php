@@ -39,6 +39,20 @@ class User_Model extends DataMapper {
      */
     public function __construct($id = NULL) {
         parent::__construct($id);
+        $this->validation = array(
+            'password' => array(
+                'label' => lang('user_password'),
+                'rules' => array('required', 'trim', 'encrypt')
+            ),
+           // 'confirm_password' => array(
+                // 'label' => lang('user_confirm_password'),
+                // 'rules' => array('required', 'matches' => 'password', 'encrypt')
+            // ),
+            // 'email' => array(
+                // 'label' => lang('email'),
+                // 'rules' => array('required', 'unique' ,'trim')
+            // ),
+        );
     }
 
     /**
@@ -97,31 +111,5 @@ class User_Model extends DataMapper {
             // Login succeeded
             return true;
         }
-    }
-
-    public function to_array($users) {
-        $array = array();
-        foreach($users as $u) {
-            $temp = array();
-            $temp['id']                = $u->id;
-            $temp['first_name']        = $u->first_name;
-            $temp['last_name']         = $u->last_name;
-            $temp['address']           = $u->address;
-            $temp['town']              = $u->town;
-            $temp['postcode']          = $u->postcode;
-            $temp['city']              = $u->city;
-            $temp['state']             = $u->state;
-            $temp['country_id']        = $u->country_id;
-            $temp['contact_no']        = $u->contact_no;
-            $temp['email']             = $u->email;
-            $temp['password']          = $u->password;
-            $temp['registration_date'] = $u->registration_date;
-            $temp['display_picture']   = $u->display_picture;
-            $temp['age']               = $u->age;
-            $temp['sex']               = $u->sex;
-            $temp['user_type']         = $u->user_type;
-            $array[] = $temp;
-        }
-        return $array;
     }
 }
