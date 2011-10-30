@@ -1,10 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once "my_datamapper.php";
 
 /**
  * Cart_Item_Model 
  * 
- * @uses MY_DataMapper
+ * @uses DataMapper
  * @package 
  * @version $Id$
  * @copyright Copyright (C) 2011-2012 Jeong-Sheng, Lim, TARC. All rights reserved.

@@ -1,7 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once "my_datamapper.php";
 
-class Monk_Model extends MY_DataMapper {
+class Monk_Model extends DataMapper {
     var $table = "monk";
     var $has_many = array(
         'monk_image' => array(
