@@ -66,6 +66,7 @@ $autoload['libraries'] = array('database', 'datamapper', 'firephp', 'session', '
 
 $autoload['helper'] = array(
     'language',
+    'inflector',
     'form',
     'url',
     'file',
@@ -107,7 +108,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array('general', 'javascript');
+$autoload['language'] = array('general', 'file', 'javascript');
 
 
 /*
