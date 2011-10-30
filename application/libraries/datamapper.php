@@ -189,6 +189,14 @@ define('DMZ_VERSION', '1.8.0');
  */
 class DataMapper implements IteratorAggregate {
 
+/**********************************************************************
+*                  User defined function                              *
+***********************************************************************/
+    require_once "datamapper_user_defined.php";
+/**********************************************************************
+*                  End User defined function                          *
+***********************************************************************/
+
 	/**
 	 * Stores the shared configuration
 	 * @var array
