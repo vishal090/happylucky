@@ -1,23 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once "my_datamapper.php";
 
 /**
  * User_Model 
  * 
- * @uses MY_DataMapper
+ * @uses DataMapper
  * @package 
  * @version $Id$
  * @copyright Copyright (C) 2011-2012 Jeong-Sheng, Lim, TARC. All rights reserved.
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class User_Model extends MY_DataMapper {
+class User_Model extends DataMapper {
 
     var $table = "user";
     var $has_one = array(
         'country' => array(
             'class'         => 'country_model',
             'other_field'   => 'country',
+            'join_self_as' => 'user',
             'join_other_as' => 'country',
             'join_table'    => 'user',
         ),
@@ -38,20 +38,6 @@ class User_Model extends MY_DataMapper {
      * @return void
      */
     public function __construct($id = NULL) {
-        $this->validation = array(
-            'password' => array(
-                'label' => lang('user_password'),
-                'rules' => array('required', 'trim', 'encrypt')
-            ),
-            // 'confirm_password' => array(
-                // 'label' => lang('user_confirm_password'),
-                // 'rules' => array('required', 'matches' => 'password', 'encrypt')
-            // ),
-            // 'email' => array(
-                // 'label' => lang('email'),
-                // 'rules' => array('required', 'unique' ,'trim')
-            // ),
-        );
         parent::__construct($id);
     }
 

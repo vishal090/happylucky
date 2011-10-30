@@ -1,17 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once "my_datamapper.php";
 
 /**
  * Country_Model 
  * 
- * @uses MY_DataMapper
+ * @uses DataMapper
  * @package 
  * @version $Id$
  * @copyright Copyright (C) 2011-2012 Jeong-Sheng, Lim, TARC. All rights reserved.
  * @author Jeong-Sheng, Lim <jslim89@gmail.com> 
  * @license GPL Version 3 {@link http://www.gnu.org/licenses/gpl.html}
  */
-class Country_Model extends MY_DataMapper {
+class Country_Model extends DataMapper {
     var $table = "country";
     var $has_many = array(
         'supplier' => array(
@@ -24,6 +23,7 @@ class Country_Model extends MY_DataMapper {
             'class'        => 'user_model',
             'other_field'  => 'user',
             'join_self_as' => 'country',
+            'join_other_as' => 'user',
             'join_table'   => 'user',
         ),
         'customer_order' => array(
